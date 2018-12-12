@@ -1,0 +1,241 @@
+body{
+  line-height: 20px;
+}
+table{
+  width: 100%;
+}
+table, th, td {
+  border: 1px solid #cccccc;
+  padding:5px;
+  text-align: left;
+  margin: 0 auto;
+  margin-bottom:30px;
+}
+
+thead{
+background-color: #FAFAFA
+}
+
+h1{
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+h2{
+  padding-top: 10px;
+}
+
+img[alt=detalle] {
+  margin-top: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+}
+
+.ant-checkbox-wrapper{
+margin-left: 0px !important;
+}
+
+.ant-card-cover{
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.ant-card-cover img{
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  height: 100%;
+  width: auto;
+  -webkit-transform: translate(-50%,-50%);
+      -ms-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);
+}
+
+
+.cardImagen{
+  height: 300px;
+  width: 320px;
+  max-width: 450px;    
+}
+
+
+@media (max-width: 770px) and (min-width: 0px) {
+  .cardImagen{
+    height: 300px;
+    width: 100%;  
+  }
+  .ant-card-cover{
+    width: 100%;
+  }
+
+  .ant-card-cover img{
+    height: auto;
+    width: 100%;
+  }
+
+  .sideMenu{
+    margin-bottom: 30px;
+  }
+
+}
+
+
+@media (max-width: 800px) and (min-width: 770px) {
+  .cardImagen{
+    height: 240px;
+    width: 100%       
+  }
+
+  .ant-card-cover{
+    height: 160px;
+  }
+
+  .ant-card-meta-detail{
+    margin: -25px 0;
+  }
+}
+
+
+@media (max-width: 1024px) and (min-width: 800px) {
+  .cardImagen{
+    height: 240px;  
+    width: 100%  
+  }
+
+  .ant-card-cover{
+    height: 160px;
+  }
+
+  .ant-card-meta-detail{
+    margin: -25px 0;
+  }
+}
+
+@media (max-width: 1280px) and (min-width: 1024px) {
+  .cardImagen{
+    height: 240px;  
+    width: 100%  
+  }
+
+  .ant-card-cover{
+    height: 160px;
+  }
+
+  .ant-card-meta-detail{
+    margin: -25px 0;
+  }
+}
+
+@media (max-width: 1680px) and (min-width: 1280px) {
+  .cardImagen{
+    height: 230px;  
+    width: 100%;  
+  }
+
+  .ant-card-cover{
+    height: 160px;
+  }
+
+  .ant-card-meta-detail{
+    margin: -20px 0;
+  }
+  .sideMenu{
+    padding: 0px 
+  }
+
+}
+
+@media (max-width: 1920px) and (min-width: 1680px) {
+  .cardImagen{
+    height: 300px;
+    width: 100%;  
+  }
+  .sideMenu{
+    padding: 10px 0px 0px 40px 
+  }
+}
+
+blockquote {
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+blockquote:before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+blockquote p {
+  display: inline;
+}
+
+
+.sideMenu{
+  background: #fff;
+}
+
+.anchor{
+  color:#666;
+}
+
+
+.anchor:hover{
+  color:#1abc9c;
+}
+
+.iconCopy{
+  color:#dddddd;
+  cursor: pointer;
+  float:left;
+}
+
+.iconCopy:hover{
+  color:gray;
+}
+
+.ant-menu-submenu-title{
+  padding-left:20px !important;
+}
+
+.ant-menu-item{
+  padding-left:26px !important;
+}
+
+.menuPrimerNivel{
+  background-color: #fdc200;
+  color:#22303d;
+}
+
+.menuSegundoNivel{
+  background-color:#94d0df;
+  color:#666;
+}
+
+.menuTercerNivel{
+  color:black;
+}
+
+.loading {
+  text-align: center;  
+  border-radius: 4px;
+  margin-bottom: 20px;
+  padding: 30px 50px;
+  margin: 20px 0;
+}
+
+
+/* colores tu clase:
+Amarillo: #ecf0f1
+celeste: #69b6c9
+turqueza: #1abc9c */
