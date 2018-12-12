@@ -1,18 +1,12 @@
 import React from 'react'
 import Router from 'next/router'
+import Loading from '../components/loading'
 
-class Index extends React.Component {
-  componentDidMount() {    
-    Router.push('/home_es-cl')
+export default class extends React.Component {
+  componentDidMount() {
+    Router.push(`/home_${this.props.lang}`)
   }
-
-  render() {    
-    return (
-       <div>
-            Cargando...
-      </div>
-    )
+  render() {
+    return <Loading />
   }
 }
-
-export default Index

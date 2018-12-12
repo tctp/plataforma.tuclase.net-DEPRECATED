@@ -99,7 +99,7 @@ class SmartComponent extends React.Component {
               type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
               onClick={this.toggle}
             />
-            {this.props.children}
+           {React.cloneElement(this.props.children, { lang: this.state.lang })}
           </Content>
         </Layout>
       </Layout>
@@ -121,7 +121,7 @@ export default class AppDoc extends App {
 
   render() {
     const { Component } = this.props
-
+    // console.log("props", this.props);
     if (this.state.loading) {
       return <Loading />
     } else {
