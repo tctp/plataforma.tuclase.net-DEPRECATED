@@ -235,6 +235,10 @@ blockquote p {
 }
 
 
+.trigger{
+ cursor: pointer;
+}
+
 /* colores tu clase:
 Amarillo: #ecf0f1
 celeste: #69b6c9

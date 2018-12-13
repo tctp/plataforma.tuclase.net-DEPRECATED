@@ -8,7 +8,6 @@ import mensajes from '../config/mensajes';
 
 const SubMenu = Menu.SubMenu;
 
-
 const SysMenu = (props) => {
 
     function onSubOpenChange(e) {

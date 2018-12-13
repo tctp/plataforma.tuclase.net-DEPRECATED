@@ -103,7 +103,7 @@ class SmartComponent extends React.Component {
                 <Menu lang={this.state.lang} />
             }
           </Sider>
-          <Content style={{ margin: '24px 0px 0px 0px', padding: 24, background: '#fff', minHeight: 280 }}>
+          <Content style={{ margin: '24px 0px 0px 0px', padding: 24, background: '#fff', minHeight: 800 }}>
             <Icon
               className="trigger"
               type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
@@ -112,6 +112,7 @@ class SmartComponent extends React.Component {
            {React.cloneElement(this.props.children, { lang: this.state.lang })}
           </Content>
         </Layout>
+        <Footer style={{textAlign:'center'}}>Tu clase, tu país ©2018</Footer>
       </Layout>
     )
   }
