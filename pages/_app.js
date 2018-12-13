@@ -2,6 +2,7 @@ import React from 'react'
 import Router from 'next/router'
 import Head from 'next/head'
 import App, { Container } from 'next/app'
+import { addLocaleData } from 'react-intl';
 import { Affix, Layout, Row, Col, Select, Icon, Input } from 'antd'
 import Menu from '../components/menu'
 import Loading from '../components/loading'
@@ -27,7 +28,16 @@ class SmartComponent extends React.Component {
     });
   }
 
+  componentDidMount(){
+    this.getIdioma(this.state.lang);
+  }
+  
+  getIdioma=(i)=>{          
+    addLocaleData(require(`react-intl/locale-data/${i.slice(0,2)}`)); //carga dinamica de libreria para idioma        
+  }
+
   handleChange = (value) => {
+    this.getIdioma(value);
     this.setState({ lang: value })
     Router.push(`${Router.router.pathname.substring(0, Router.router.pathname.lastIndexOf("_"))}_${value}`)
   }
