@@ -66,13 +66,13 @@ class SmartComponent extends React.Component {
         </Head>
         <Header style={{ background: '#fff', padding: 0 }}>
           <Row gutter={12}>
-            <Col span={4}>
+            <Col xs={6} sm={6} md={6} lg={4} xl={4}>
               <img src="https://cursos.tuclase.net/shared/login/net/img/logo-tctp-net-d2l.png" width="100" />&nbsp;&nbsp;
             </Col>
-            <Col span={16}>
+            <Col xs={10} sm={14} md={14} lg={16} xl={16} >
               <Search placeholder="Buscar..." onSearch={value => console.log(value)} style={{ width: '70%', marginTop: '20px' }} />
             </Col>
-            <Col span={4}>
+            <Col xs={8} sm={4} md={4} lg={4} xl={4}>
               <Select defaultValue="Español" style={{ width: 120 }} onChange={this.handleChange}>
                 <Option value="es-cl">Español</Option>
                 <Option value="pt-br">Portugués</Option>
@@ -88,11 +88,11 @@ class SmartComponent extends React.Component {
             collapsible
             collapsed={this.state.collapsed}
             theme={'light'}
-            style={{ marginTop: '24px', paddingTop: '24px' }}
+            style={{ paddingTop: '24px' }}
             collapsedWidth={0}
             onBreakpoint={this.onBreakpointChange}
             breakpoint="md"
-            width={this.state.mobile ? '100%' : 250}
+            width={this.state.mobile ? '80%' : 250}
           >
             {
               !this.state.collapsed && !this.state.mobile ?
@@ -103,7 +103,7 @@ class SmartComponent extends React.Component {
                 <Menu lang={this.state.lang} />
             }
           </Sider>
-          <Content style={{ margin: '24px 0px 0px 0px', padding: 24, background: '#fff', minHeight: 800 }}>
+          <Content style={{ padding: 24, background: '#fff', minHeight: 800, minWidth: 400 }}>
             <Icon
               className="trigger"
               type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
