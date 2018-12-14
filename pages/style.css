@@ -209,21 +209,12 @@ blockquote p {
 }
 
 .ant-menu-item{
-  padding-left:26px !important;
-}
-
-.menuPrimerNivel{
-  background-color: #fdc200;
-  color:#22303d;
-}
-
-.menuSegundoNivel{
-  background-color:#94d0df;
-  color:#666;
+  padding-left:30px !important;
 }
 
 .menuTercerNivel{
   color:black;
+  padding-left:5px;
 }
 
 .loading {

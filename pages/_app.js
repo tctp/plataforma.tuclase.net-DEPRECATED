@@ -45,11 +45,13 @@ class SmartComponent extends React.Component {
   onBreakpointChange = (broken) => {
     if (broken) {
       this.setState({
-        mobile: true
+        mobile: true,
+        collapsed:true
       });
     } else {
       this.setState({
-        mobile: false
+        mobile: false,
+        collapsed:false
       });
     }
   }
@@ -64,21 +66,21 @@ class SmartComponent extends React.Component {
           <link rel="shortcut icon" type="image/png" href="/static/favicon.ico" />
           <link rel="shortcut icon" type="image/png" href="/static/favicon.ico" />
         </Head>
-        <Header style={{ background: '#fff', padding: 0 }}>
+        <Header style={{background:'#f0f2f5'}}>
           <Row gutter={12}>
-            <Col xs={6} sm={6} md={6} lg={4} xl={4}>
-              <img src="https://cursos.tuclase.net/shared/login/net/img/logo-tctp-net-d2l.png" width="100" />&nbsp;&nbsp;
+            <Col xs={24} sm={24} md={6} lg={6} xl={3} xxl={4}>
+              <img src="https://cursos.tuclase.net/shared/login/net/img/logo-tctp-net-d2l.png" width="100" />
             </Col>
-            <Col xs={10} sm={14} md={14} lg={16} xl={16} >
-              <Search placeholder="Buscar..." onSearch={value => console.log(value)} style={{ width: '70%', marginTop: '20px' }} />
-            </Col>
-            <Col xs={8} sm={4} md={4} lg={4} xl={4}>
-              <Select defaultValue="Español" style={{ width: 120 }} onChange={this.handleChange}>
-                <Option value="es-cl">Español</Option>
-                <Option value="pt-br">Portugués</Option>
-              </Select>
-                &nbsp;&nbsp;&nbsp;&nbsp;
-              {v.version}
+            <Col xs={0} sm={0} md={18} lg={18} xl={21} xxl={20}>
+              <Search placeholder="Buscar..." onSearch={value => console.log(value)} style={{ width: '70%' }} />
+                <span style={{float:'right', marginRight:'10px'}}>
+                    <Select defaultValue="Español" style={{ width: 120}} onChange={this.handleChange}>
+                      <Option value="es-cl">Español</Option>
+                      <Option value="pt-br">Portugués</Option>
+                    </Select>     
+                    &nbsp;&nbsp;&nbsp;
+                    {v.version}
+                </span>                                
             </Col>
           </Row>
         </Header>
@@ -92,8 +94,7 @@ class SmartComponent extends React.Component {
             collapsedWidth={0}
             onBreakpoint={this.onBreakpointChange}
             breakpoint="md"
-            width={this.state.mobile ? '80%' : 250}
-          >
+            width={this.state.mobile ? '80%' : 250}>
             {
               !this.state.collapsed && !this.state.mobile ?
                 <Affix>
@@ -103,7 +104,7 @@ class SmartComponent extends React.Component {
                 <Menu lang={this.state.lang} />
             }
           </Sider>
-          <Content style={{ padding: 24, background: '#fff', minHeight: 800, minWidth: 400 }}>
+          <Content style={{ padding: 24, background: '#fff', minHeight: 800, minWidth: 400 }}>          
             <Icon
               className="trigger"
               type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
