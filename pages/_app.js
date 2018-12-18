@@ -3,6 +3,8 @@ import Router from 'next/router'
 import Head from 'next/head'
 import App, { Container } from 'next/app'
 import { addLocaleData } from 'react-intl';
+import Anchor from '../components/anchor'
+import Copy from '../components/copy'
 import { Affix, Layout, Row, Col, Select, Icon, Input } from 'antd'
 import Menu from '../components/menu'
 import Loading from '../components/loading'
@@ -110,6 +112,8 @@ class SmartComponent extends React.Component {
               type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
               onClick={this.toggle}
             />
+            <Anchor/> 
+            <Copy/>           
            {React.cloneElement(this.props.children, { lang: this.state.lang })}
           </Content>
         </Layout>
