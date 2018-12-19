@@ -40,9 +40,8 @@ export default class extends React.Component {
   }
 
 
-  render() {
-    console.log("props en anchor", this.props);
-    if (!this.state.loading) {
+  render() {    
+    if (!this.state.loading && !this.props.isMobile) {
       return (
         <div style={{ float: 'right' }}>
           <Anchor affix={true}>
@@ -55,7 +54,7 @@ export default class extends React.Component {
         </div>
       )
     } else {
-      return <div>cargando...</div>
+      return <div></div>
     }
 
   }

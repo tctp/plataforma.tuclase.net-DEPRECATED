@@ -8,8 +8,7 @@ table, th, td {
   border: 1px solid #cccccc;
   padding:5px;
   text-align: left;
-  margin: 0 auto;
-  margin-bottom:30px;
+  margin:20px 0px 20px 0px;
 }
 
 thead{

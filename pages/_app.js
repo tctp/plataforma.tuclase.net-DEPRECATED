@@ -74,7 +74,7 @@ class SmartComponent extends React.Component {
               <img src="https://cursos.tuclase.net/shared/login/net/img/logo-tctp-net-d2l.png" width="100" />
             </Col>
             <Col xs={0} sm={0} md={18} lg={18} xl={21} xxl={20}>
-              <Search placeholder="Buscar..." onSearch={value => console.log(value)} style={{ width: '70%' }} />
+              <Search placeholder="Buscar..." onSearch={value => console.log(value)} style={{ width: '60%' }} />
                 <span style={{float:'right', marginRight:'10px'}}>
                     <Select defaultValue="Español" style={{ width: 120}} onChange={this.handleChange}>
                       <Option value="es-cl">Español</Option>
@@ -106,15 +106,19 @@ class SmartComponent extends React.Component {
                 <Menu lang={this.state.lang} />
             }
           </Sider>
-          <Content style={{ padding: 24, background: '#fff', minHeight: 800, minWidth: 400 }}>          
+          <Content style={{padding: '24px 10px 0px 24px', background: '#fff', minHeight: 800, minWidth: 400 }}>          
             <Icon
               className="trigger"
               type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
               onClick={this.toggle}
             />
-            <Anchor/> 
-            <Copy/>           
-           {React.cloneElement(this.props.children, { lang: this.state.lang })}
+            <Anchor isMobile={this.state.mobile}/> 
+            <Copy/> 
+            <Row gutter={12}>
+              <Col xs={24} sm={24} md={19} lg={20} xl={21} xxl={22} style={{paddingBottom:'600px'}}>
+                {React.cloneElement(this.props.children, { lang: this.state.lang })}
+              </Col>
+            </Row>
           </Content>
         </Layout>
         <Footer style={{textAlign:'center'}}>Tu clase, tu país ©2018</Footer>

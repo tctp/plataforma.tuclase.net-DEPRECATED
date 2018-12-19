@@ -48,8 +48,7 @@ export default class extends React.Component {
   }
 
 
-  render() {
-    console.log("props en icon", this.props);
+  render() {    
     if (!this.state.loading) {
       return (
         <div>&nbsp;</div>
