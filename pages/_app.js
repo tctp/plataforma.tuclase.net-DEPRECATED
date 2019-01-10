@@ -3,11 +3,11 @@ import Router from 'next/router'
 import Head from 'next/head'
 import App, { Container } from 'next/app'
 import { addLocaleData } from 'react-intl';
-import Anchor from '../components/anchor'
-import Copy from '../components/copy'
+import Anchor from '../componentes/anchor'
+import Copy from '../componentes/copy'
 import { Affix, Layout, Row, Col, Select, Icon, Input } from 'antd'
-import Menu from '../components/menu'
-import Loading from '../components/loading'
+import Menu from '../componentes/menu'
+import Loading from '../componentes/loading'
 import v from '../config/version.json'
 import './style.css'
 
@@ -30,12 +30,12 @@ class SmartComponent extends React.Component {
     });
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.getIdioma(this.state.lang);
   }
-  
-  getIdioma=(i)=>{          
-    addLocaleData(require(`react-intl/locale-data/${i.slice(0,2)}`)); //carga dinamica de libreria para idioma        
+
+  getIdioma = (i) => {
+    addLocaleData(require(`react-intl/locale-data/${i.slice(0, 2)}`)); //carga dinamica de libreria para idioma        
   }
 
   handleChange = (value) => {
@@ -48,12 +48,12 @@ class SmartComponent extends React.Component {
     if (broken) {
       this.setState({
         mobile: true,
-        collapsed:true
+        collapsed: true
       });
     } else {
       this.setState({
         mobile: false,
-        collapsed:false
+        collapsed: false
       });
     }
   }
@@ -68,21 +68,21 @@ class SmartComponent extends React.Component {
           <link rel="shortcut icon" type="image/png" href="/static/favicon.ico" />
           <link rel="shortcut icon" type="image/png" href="/static/favicon.ico" />
         </Head>
-        <Header style={{background:'#f0f2f5'}}>
+        <Header style={{ background: '#f0f2f5' }}>
           <Row gutter={12}>
             <Col xs={24} sm={24} md={6} lg={6} xl={3} xxl={4}>
               <img src="https://cursos.tuclase.net/shared/login/net/img/logo-tctp-net-d2l.png" width="100" />
             </Col>
             <Col xs={0} sm={0} md={18} lg={18} xl={21} xxl={20}>
               <Search placeholder="Buscar..." onSearch={value => console.log(value)} style={{ width: '60%' }} />
-                <span style={{float:'right', marginRight:'10px'}}>
-                    <Select defaultValue="Español" style={{ width: 120}} onChange={this.handleChange}>
-                      <Option value="es-cl">Español</Option>
-                      <Option value="pt-br">Portugués</Option>
-                    </Select>     
-                    &nbsp;&nbsp;&nbsp;
+              <span style={{ float: 'right', marginRight: '10px' }}>
+                <Select defaultValue="Español" style={{ width: 120 }} onChange={this.handleChange}>
+                  <Option value="es-cl">Español</Option>
+                  <Option value="pt-br">Portugués</Option>
+                </Select>
+                &nbsp;&nbsp;&nbsp;
                     {v.version}
-                </span>                                
+              </span>
             </Col>
           </Row>
         </Header>
@@ -106,22 +106,22 @@ class SmartComponent extends React.Component {
                 <Menu lang={this.state.lang} />
             }
           </Sider>
-          <Content style={{padding: '24px 10px 0px 24px', background: '#fff', minHeight: 800, minWidth: 400 }}>          
+          <Content style={{ padding: '24px 10px 0px 24px', background: '#fff', minHeight: 800, minWidth: 400 }}>
             <Icon
               className="trigger"
               type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
               onClick={this.toggle}
             />
-            <Anchor isMobile={this.state.mobile}/> 
-            <Copy/> 
+            <Anchor isMobile={this.state.mobile} />
+            <Copy />
             <Row gutter={12}>
-              <Col xs={24} sm={24} md={19} lg={20} xl={21} xxl={22} style={{paddingBottom:'600px'}}>
+              <Col xs={24} sm={24} md={19} lg={20} xl={21} xxl={22}>
                 {React.cloneElement(this.props.children, { lang: this.state.lang })}
               </Col>
             </Row>
           </Content>
         </Layout>
-        <Footer style={{textAlign:'center'}}>Tu clase, tu país ©2018</Footer>
+        <Footer style={{ textAlign: 'center' }}>Tu clase, tu país ©2018</Footer>
       </Layout>
     )
   }

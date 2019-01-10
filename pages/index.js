@@ -1,6 +1,6 @@
 import React from 'react'
 import Router from 'next/router'
-import Loading from '../components/loading'
+import Loading from '../componentes/loading'
 
 export default class extends React.Component {
   componentDidMount() {
