@@ -233,3 +233,19 @@ blockquote p {
 Amarillo: #ecf0f1
 celeste: #69b6c9
 turqueza: #1abc9c */
+
+.anchorNavFixLateral{
+  position: relative;
+  z-index: 9999;
+  float: right;  
+}
+.ant-anchor{
+  width: 120px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.ant-anchor-link-title{
+  font-size: 12px;
+  text-overflow: ellipsis;
+}

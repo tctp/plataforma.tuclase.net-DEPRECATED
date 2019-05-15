@@ -65,8 +65,7 @@ class SmartComponent extends React.Component {
           <title>Documentación tu clase, tu país</title>
           <meta charSet='utf-8' />
           <meta name='viewport' content='initial-scale=1.0, width=device-width' />
-          <link rel="shortcut icon" type="image/png" href="/static/favicon.ico" />
-          <link rel="shortcut icon" type="image/png" href="/static/favicon.ico" />
+          <link rel="shortcut icon" type="image/png" href="/static/favicon.ico" />          
         </Head>
         <Header style={{ background: '#f0f2f5' }}>
           <Row gutter={12}>
@@ -119,6 +118,7 @@ class SmartComponent extends React.Component {
                 {React.cloneElement(this.props.children, { lang: this.state.lang })}
               </Col>
             </Row>
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
           </Content>
         </Layout>
         <Footer style={{ textAlign: 'center' }}>Tu clase, tu país ©2018</Footer>
