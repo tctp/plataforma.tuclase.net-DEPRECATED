@@ -22,6 +22,7 @@ class SmartComponent extends React.Component {
     collapsed: false,
     mobile: false,
     loading: true,
+    currentYear: (new Date()).getFullYear(),
   }
 
   toggle = () => {
@@ -59,6 +60,7 @@ class SmartComponent extends React.Component {
   }
 
   render() {
+    let {currentYear} = this.state;
     return (
       <Layout>
         <Head>
@@ -121,7 +123,9 @@ class SmartComponent extends React.Component {
             <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
           </Content>
         </Layout>
-        <Footer style={{ textAlign: 'center' }}>Tu clase, tu país ©2018</Footer>
+        <Footer style={{ textAlign: 'center', backgroundColor: '#FAFAFA' }}>
+            Tu clase, tu país ©{currentYear}
+        </Footer>
       </Layout>
     )
   }
