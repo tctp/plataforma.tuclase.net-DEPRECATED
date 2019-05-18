@@ -5,7 +5,7 @@ import App, { Container } from 'next/app'
 import { addLocaleData } from 'react-intl';
 import Anchor from '../componentes/anchor'
 import Copy from '../componentes/copy'
-import { Affix, Layout, Row, Col, Select, Icon, Input } from 'antd'
+import { Affix, Layout, Row, Col, Select, Icon, Input, Tag } from 'antd'
 import Menu from '../componentes/menu'
 import Loading from '../componentes/loading'
 import v from '../config/version.json'
@@ -61,6 +61,7 @@ class SmartComponent extends React.Component {
 
   render() {
     let {currentYear} = this.state;
+    
     return (
       <Layout>
         <Head>
@@ -77,12 +78,14 @@ class SmartComponent extends React.Component {
             <Col xs={0} sm={0} md={18} lg={18} xl={21} xxl={20}>
               <Search placeholder="Buscar..." onSearch={value => console.log(value)} style={{ width: '60%' }} />
               <span style={{ float: 'right', marginRight: '10px' }}>
+
+
                 <Select defaultValue="Español" style={{ width: 120 }} onChange={this.handleChange}>
                   <Option value="es-cl">Español</Option>
                   <Option value="pt-br">Portugués</Option>
                 </Select>
                 &nbsp;&nbsp;&nbsp;
-                    {v.version}
+                    
               </span>
             </Col>
           </Row>
@@ -124,7 +127,9 @@ class SmartComponent extends React.Component {
           </Content>
         </Layout>
         <Footer style={{ textAlign: 'center', backgroundColor: '#FAFAFA' }}>
-            Tu clase, tu país ©{currentYear}
+            Tu clase, tu país ©{currentYear} <br/>
+            <Tag color="lime">Versión publicada: {v.version}</Tag>
+            
         </Footer>
       </Layout>
     )
