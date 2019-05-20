@@ -119,7 +119,7 @@ class SmartComponent extends React.Component {
             <Anchor isMobile={this.state.mobile} />
             <Copy />
             <Row gutter={12}>
-              <Col xs={24} sm={24} md={19} lg={20} xl={21} xxl={22}>
+              <Col offset={2} xs={17} sm={17} md={17} lg={18} xl={18} xxl={18}>
                 {React.cloneElement(this.props.children, { lang: this.state.lang })}
               </Col>
             </Row>
@@ -128,8 +128,7 @@ class SmartComponent extends React.Component {
         </Layout>
         <Footer style={{ textAlign: 'center', backgroundColor: '#FAFAFA' }}>
             Tu clase, tu país ©{currentYear} <br/>
-            <Tag color="lime">Versión publicada: {v.version}</Tag>
-            
+            <p style={{fontSize:'11px', color:'#666'}}>Versión publicada: {v.version}</p>            
         </Footer>
       </Layout>
     )
