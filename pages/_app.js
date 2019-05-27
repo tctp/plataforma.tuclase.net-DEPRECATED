@@ -3,10 +3,10 @@ import Router from 'next/router'
 import Head from 'next/head'
 import App, { Container } from 'next/app'
 import { addLocaleData } from 'react-intl';
-import Anchor from '../componentes/anchor'
-import Copy from '../componentes/copy'
+import TctpAnchor from '../componentes/tctpAnchor'
+import TctpCopy from '../componentes/tctpCopy'
 import { Affix, Layout, Row, Col, Select, Icon, Input, Tag } from 'antd'
-import Menu from '../componentes/menu'
+import TctpSideBarNav from '../componentes/tctpSideBarNav'
 import Loading from '../componentes/loading'
 import v from '../config/version.json'
 import './style.css'
@@ -104,20 +104,20 @@ class SmartComponent extends React.Component {
             {
               !this.state.collapsed && !this.state.mobile ?
                 <Affix>
-                  <Menu lang={this.state.lang} />
+                  <TctpSideBarNav lang={this.state.lang} />
                 </Affix>
                 :
-                <Menu lang={this.state.lang} />
+                <TctpSideBarNav lang={this.state.lang} />
             }
           </Sider>
           <Content style={{ padding: '24px 10px 0px 24px', background: '#fff', minHeight: 800, minWidth: 400 }}>
             <Icon
               className="trigger"
-              type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
+              type={this.state.collapsed ? 'TctpSideBarNav-unfold' : 'TctpSideBarNav-fold'}
               onClick={this.toggle}
             />
-            <Anchor isMobile={this.state.mobile} />
-            <Copy />
+            <TctpAnchor isMobile={this.state.mobile} />
+            <TctpCopy />
             <Row gutter={12}>
               <Col offset={2} xs={17} sm={17} md={17} lg={18} xl={18} xxl={18}>
                 {React.cloneElement(this.props.children, { lang: this.state.lang })}
