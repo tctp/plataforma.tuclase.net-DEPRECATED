@@ -113,7 +113,7 @@ class SmartComponent extends React.Component {
           <Content style={{ padding: '24px 10px 0px 24px', background: '#fff', minHeight: 800, minWidth: 400 }}>
             <Icon
               className="trigger"
-              type={this.state.collapsed ? 'TctpSideBarNav-unfold' : 'TctpSideBarNav-fold'}
+              type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
               onClick={this.toggle}
             />
             <TctpAnchor isMobile={this.state.mobile} />
