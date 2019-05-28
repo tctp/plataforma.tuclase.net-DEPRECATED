@@ -5,7 +5,7 @@ import App, { Container } from 'next/app'
 import { addLocaleData } from 'react-intl';
 import TctpAnchor from '../componentes/tctpAnchor'
 import TctpCopy from '../componentes/tctpCopy'
-import { Affix, Layout, Row, Col, Select, Icon, Input, Tag } from 'antd'
+import { Affix, Layout, Row, Col, Select, Icon, Input, Tag, Menu, Dropdown, Button } from 'antd'
 import TctpSideBarNav from '../componentes/tctpSideBarNav'
 import Loading from '../componentes/loading'
 import v from '../config/version.json'
@@ -39,10 +39,11 @@ class SmartComponent extends React.Component {
     addLocaleData(require(`react-intl/locale-data/${i.slice(0, 2)}`)); //carga dinamica de libreria para idioma        
   }
 
-  handleChange = (value) => {
-    this.getIdioma(value);
-    this.setState({ lang: value })
-    Router.push(`${Router.router.pathname.substring(0, Router.router.pathname.lastIndexOf("_"))}_${value}`)
+  handleIdiomaChange = (value) => {
+    console.log("value", value);
+    this.getIdioma(value.key);
+    this.setState({ lang: value.key })
+    Router.push(`${Router.router.pathname.substring(0, Router.router.pathname.lastIndexOf("_"))}_${value.key}`)
   }
 
   onBreakpointChange = (broken) => {
@@ -62,6 +63,7 @@ class SmartComponent extends React.Component {
   render() {
     let {currentYear} = this.state;
     
+
     return (
       <Layout>
         <Head>
@@ -73,19 +75,20 @@ class SmartComponent extends React.Component {
         <Header style={{ background: '#f0f2f5' }}>
           <Row gutter={12}>
             <Col xs={24} sm={24} md={6} lg={6} xl={3} xxl={4}>
-              <img src="https://cursos.tuclase.net/shared/login/net/img/logo-tctp-net-d2l.png" width="100" />
+              <img src="https://catalogo.tuclase.net/Theme/MainLogo?themeId=2&lastModified=636935293663870000" width="100" />
             </Col>
             <Col xs={0} sm={0} md={18} lg={18} xl={21} xxl={20}>
               <Search placeholder="Buscar..." onSearch={value => console.log(value)} style={{ width: '60%' }} />
               <span style={{ float: 'right', marginRight: '10px' }}>
+                <Dropdown className="localeBtn" overlay={(
+                  <Menu onClick={this.handleIdiomaChange}>
+                    <Menu.Item key="es-cl">Español</Menu.Item>
+                    <Menu.Item key="pt-br">Portugues</Menu.Item>
+                  </Menu>
+                )}>                 
+                    <Icon type="global" style={{ fontSize: '16px', color: '#666' }}/>
+                </Dropdown>
 
-
-                <Select defaultValue="Español" style={{ width: 120 }} onChange={this.handleChange}>
-                  <Option value="es-cl">Español</Option>
-                  <Option value="pt-br">Portugués</Option>
-                </Select>
-                &nbsp;&nbsp;&nbsp;
-                    
               </span>
             </Col>
           </Row>

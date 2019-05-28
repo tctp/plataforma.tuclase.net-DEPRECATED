@@ -236,7 +236,7 @@ turqueza: #1abc9c */
 
 .anchorNavFixLateral{
   position: relative;
-  z-index: 9999;
+  z-index: 999;
   float: right;  
 }
 .ant-anchor{
@@ -248,4 +248,9 @@ turqueza: #1abc9c */
 .ant-anchor-link-title{
   font-size: 12px;
   text-overflow: ellipsis;
+}
+
+.localeBtn{  
+  position: relative;
+  z-index: 9999;  
 }
