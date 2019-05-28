@@ -43,7 +43,7 @@ export default class extends React.Component {
   render() {    
     if (!this.state.loading && !this.props.isMobile) {
       return (
-        <div style={{ float: 'right' }}>
+        <div className="anchorNavFixLateral">
           <Anchor affix={true}>
             {
               this.state.menu.map((m, i) => {

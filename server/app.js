@@ -7,9 +7,9 @@ const dev = process.env.NODE_ENV !== 'production'
 const port = process.env.PORT || 8000
 const ROOT_URL = dev
   ? `http://localhost:${port}`
-  : 'https://catalogo-multimedia.tuclase.net'
+  : 'https://plataforma.tuclase.net'
 
-// const ROOT_URL = 'https://catalogo-multimedia.tuclase.net';
+// const ROOT_URL = 'https://plataforma.tuclase.net';
 
 const app = next({ dev })
 const handle = app.getRequestHandler()
