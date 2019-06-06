@@ -1,27 +1,30 @@
+import { Tag  } from 'antd';
 
-export const TctpTabla = (props) => {
+export const TctpOuTipoTabla = (props) => {	
 
-    let { header, children, headerColor } = props;    
-    !children.length ? children = [children] : children;        
+	let { header, children, headerColor } = props;
+	!children.length ? children = [children] : children;    
 
-    const tableStyle = {
+	const tableStyle = {
         border: '1px solid #cccccc',
         padding:'10px',
         textAlign: 'left',  
         marginBottom:'30px',        
       }
-    return (
-        <div>
-            <table width='90%' style={tableStyle}>
-                <thead>
+
+	return (
+		<div>
+
+			<table width='90%' style={tableStyle}>
+				<thead>			
                     <tr>
                         {
                             header.map((child, index) => {                                
                                 return <th key={index} style={{background: !headerColor ? '#FAFAFA':headerColor}}><b>{child}</b></th>
                             })
                         }
-                    </tr>
-                </thead>
+                    </tr>				
+				</thead>
                 <tbody>
                     {
                         children.map((child, index) => {
@@ -31,22 +34,25 @@ export const TctpTabla = (props) => {
                                         return <td key={ind}>{item}</td>
                                     })
                                 }
+                                {
+                                    child.props.roles.map((rol, i) => {
+                                        return <td key={i}>
+												{
+													rol.map((r,n)=>{
+														return<Tag key={n}>{r}</Tag>
+													})
+												}												
+											</td>
+                                    })
+                                }
                             </tr>
                         })
                     }
                 </tbody>
-            </table>
-        </div>
-    )
-}
+			</table>
+		</div>
+	);
+};
 
-export const TctpTablaFila = (props) => <p></p>
-
-
-
-
-
-
-
-
+export const TctpOuTipoTablaFila = (props) => <p></p>
 

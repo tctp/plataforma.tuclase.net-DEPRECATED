@@ -113,18 +113,22 @@ class SmartComponent extends React.Component {
                 <TctpSideBarNav lang={this.state.lang} />
             }
           </Sider>
-          <Content style={{ padding: '24px 10px 0px 24px', background: '#fff', minHeight: 800, minWidth: 400 }}>
+          <Content style={{ padding: '24px 10px 0px 4%', lineHeight:'24px', background: '#fff', minHeight: 800, minWidth: 400 }}>
             <Icon
               className="trigger"
               type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
               onClick={this.toggle}
             />
-            <TctpAnchor isMobile={this.state.mobile} />
+            
             <TctpCopy />
-            <Row gutter={12}>
-              <Col offset={2} xs={17} sm={17} md={17} lg={18} xl={18} xxl={18}>
+            <Row gutter={40} type="flex" justify="center" align="top">
+              <Col span={19}>
                 {React.cloneElement(this.props.children, { lang: this.state.lang })}
               </Col>
+              <Col span={5}>
+                  <TctpAnchor isMobile={this.state.mobile} />
+              </Col>
+              
             </Row>
             <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
           </Content>

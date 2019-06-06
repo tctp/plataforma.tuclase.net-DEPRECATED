@@ -1,7 +1,8 @@
 
-export const TctpTabla = (props) => {
+export const TctpTablaDocumentativa = (props) => {
 
-    let { header, children, headerColor } = props;    
+    let { header, children, headerColor } = props;
+    console.log("children!", children);
     !children.length ? children = [children] : children;        
 
     const tableStyle = {
@@ -22,15 +23,16 @@ export const TctpTabla = (props) => {
                         }
                     </tr>
                 </thead>
-                <tbody>
+                <tbody>                    
                     {
                         children.map((child, index) => {
-                            return <tr key={index} style={child.props.destacada ? {background: !child.props.color ? '#E9F7FE':child.props.color}:{background:'none'}}>
-                                {
-                                    child.props.data.map((item, ind) => {
-                                        return <td key={ind}>{item}</td>
-                                    })
-                                }
+                            return <tr key={index}>                            
+                                <td>
+                                    <a href={child.props.link} target="_blank">{child.props.item}</a>
+                                </td>
+                                <td>
+                                    {child.props.desc}
+                                </td>   
                             </tr>
                         })
                     }
@@ -40,7 +42,7 @@ export const TctpTabla = (props) => {
     )
 }
 
-export const TctpTablaFila = (props) => <p></p>
+export const Fila = (props) => <p></p>
 
 
 

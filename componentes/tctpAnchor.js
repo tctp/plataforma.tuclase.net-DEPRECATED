@@ -25,7 +25,7 @@ export default class extends React.Component {
     let nodes = document.querySelectorAll("h3 > a");
     let comprobar = document.querySelector(".anchor");
     if (!comprobar) {
-      nodes.forEach((node) => {
+      nodes.forEach((node) => {        
         let textnode = document.createTextNode(" ¶ ");
         node.appendChild(textnode);
         node.classList.add("anchor")

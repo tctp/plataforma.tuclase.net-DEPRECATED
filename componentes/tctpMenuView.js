@@ -18,7 +18,7 @@ const SysMenu = (props) => {
         props.click(e);
     }
 
-    let {lang, sys} = props;
+    let { lang, sys } = props;    
 
     if (sys == "tctp-lms-bs") {
         return <IntlProvider locale={lang} messages={mensajes[lang]}>
@@ -44,6 +44,9 @@ const SysMenu = (props) => {
                 </SubMenu>
                 <SubMenu key="editor" title={<FormattedMessage id="editor" defaultMessage="Editor de cursos" />} onTitleClick={() => Router.push(`/${sys}/editor/home_${lang}`)}>
                     <Menu.Item key={`herramientas-de-comunicacion_${lang}`}><Link href={`/${sys}/editor/herramientas-de-comunicacion_${lang}`}><a>Herramientas de comunicación</a></Link></Menu.Item>
+                    <SubMenu key="cuestionarios" title={<FormattedMessage id="cuestionarios" defaultMessage="Cuestionarios" />} className="menuTercerNivel">                    
+                        <Menu.Item key={`descripcion_${lang}`}><Link href={`/${sys}/editor/cuestionarios/descripcion_${lang}`}><a><FormattedMessage id="descripcion" defaultMessage="Descripción" /></a></Link></Menu.Item>                            
+                    </SubMenu>
                 </SubMenu>
                 <SubMenu key="disenador" title={<FormattedMessage id="disenador" defaultMessage="Diseñador Gráfico" />} onTitleClick={() => Router.push(`/${sys}/disenador-grafico/home_${lang}`)}>
                     {/* no hay contenido por el monmento */}
@@ -53,7 +56,6 @@ const SysMenu = (props) => {
                 </SubMenu>
             </Menu>
         </IntlProvider>
-
     } else if (sys == "tctp-catalogo-bs") {
         return <IntlProvider locale={lang} messages={mensajes[lang]}>
             <Menu mode="inline" openKeys={props.open} selectedKeys={props.selected} onOpenChange={onSubOpenChange} onClick={onSubClick}>
@@ -71,17 +73,18 @@ const SysMenu = (props) => {
         </IntlProvider>
     } else if (sys == "tctp-comunidad-hh") {
         return <IntlProvider locale={lang} messages={mensajes[lang]}>
-        <Menu mode="inline" openKeys={props.open} selectedKeys={props.selected} onOpenChange={onSubOpenChange} onClick={onSubClick}>
-            <SubMenu key="administrador" title={<FormattedMessage id="administrador" defaultMessage="Administrador" />} onTitleClick={() => Router.push(`/${sys}/administrador/home_${lang}`)}>
-                <Menu.Item key="7">Home</Menu.Item>
-                <Menu.Item key="8">About</Menu.Item>
-                <Menu.Item key="9">Contacto</Menu.Item>
-            </SubMenu>
-        </Menu>
+            <Menu mode="inline" openKeys={props.open} selectedKeys={props.selected} onOpenChange={onSubOpenChange} onClick={onSubClick}>
+                <SubMenu key="administrador" title={<FormattedMessage id="administrador" defaultMessage="Administrador" />} onTitleClick={() => Router.push(`/${sys}/administrador/home_${lang}`)}>
+                    <Menu.Item key="7">Home</Menu.Item>
+                    <Menu.Item key="8">About</Menu.Item>
+                    <Menu.Item key="9">Contacto</Menu.Item>
+                </SubMenu>
+            </Menu>
         </IntlProvider>
     } else {
         return <Menu mode="inline"></Menu>
     }
+    
 }
 
 export default SysMenu

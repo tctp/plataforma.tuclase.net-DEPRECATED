@@ -10,7 +10,9 @@ export default{
         'organizador':'Organizador',
         'gestionUsuarios':'Gestion de usuarios',      
         'about':'Quienes somos',
-        'contacto':'Contacto'
+        'contacto':'Contacto',
+        'cuestionarios':'Cuestionarios',
+        'descripcion':'Descripción'      
     },
     'pt-br':{    
         'administrador': 'Administrador',
@@ -23,6 +25,8 @@ export default{
         'organizador': 'Organizador',
         'gestionUsuarios': 'Gerenciamento de usuários',
         'about': 'Quem somos',
-        'contacto': 'Contato'
+        'contacto': 'Contato',
+        'cuestionarios':'Questionários',
+        'descripcion':'Descrição'   
     }
 }
