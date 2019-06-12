@@ -1,6 +1,13 @@
 import { Tag } from 'antd';
 
+let modos = new Set();
+
+
 export default class extends React.Component {
+
+    state = {
+        arrContenidos:[]
+    }
 
     renderObjectOu(e){
       return  e ?
@@ -11,22 +18,66 @@ export default class extends React.Component {
         <span></span>
     }
 
-    render() {                
+    getRoles(ou, modo){        
+        if(ou[modo]){
+            return this.renderObjectOu(ou[modo]) 
+        }                                          
+    }
 
+    establecerKeysenSet(){     
+        let ousNames = Object.getOwnPropertyNames(this.props);
+        ousNames.forEach((ouName)=>{            
+            Object.keys(this.props[ouName]).forEach((e)=>{
+                modos.add(e);
+            }) 
+        })        
+    }
+
+    componentDidMount(){
+       this.getModos(this.props);
+    }
+
+    getModos(a){
+        let arr=[];
+        let {campus, organizacion, plantillas, ofertas} = a;  
+        this.establecerKeysenSet();          
+
+        modos.forEach((modo)=>{            
+            let obj={
+                name:modo,
+                ous:[
+                {
+                    name:"organización",
+                    roles:this.getRoles(organizacion, modo)
+                },
+                {
+                    name:"campus",
+                    roles:this.getRoles(campus, modo)
+                },
+                {
+                    name:"plantillas",
+                    roles:this.getRoles(plantillas, modo)
+                },
+                {
+                    name:"ofertas",
+                    roles:this.getRoles(ofertas, modo)
+                }
+            ]
+            }
+            arr.push(obj);
+        })        
+        this.setState({arrContenidos:arr});
+    }
+
+
+    render() {                            
         const tableStyle = {
             border: '1px solid #cccccc',
             padding: '10px',
             textAlign: 'left',
             marginBottom: '30px',
-        }
-        
-        let rolesPorOu = Object.entries(this.props);
-        console.log("rolesPorOu", rolesPorOu);
-
-        rolesPorOu.forEach((obj)=>{
-            console.log("obj", typeof obj);
-        })        
-
+        }        
+        console.log("this.state.arrContenidos", this.state.arrContenidos);
         return (
             <div>
                 <table width='90%' style={tableStyle}>
@@ -40,22 +91,18 @@ export default class extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Lectura</td>
-                            {
-                                rolesPorOu.map((ou)=>{
-                                    return <td key={ou}>{this.renderObjectOu(ou[1].lectura)}</td>
-                                })
-                            }
-                        </tr>
-                        <tr>
-                            <td>Escritura</td>
-                            {
-                                rolesPorOu.map((ou)=>{
-                                    return <td key={ou}>{this.renderObjectOu(ou[1].escritura)}</td>
-                                })
-                            }
-                        </tr>
+                        {
+                            this.state.arrContenidos.map((item, i)=>{
+                                return <tr key={item+i}>
+                                        <td>{item.name.charAt(0).toUpperCase() + item.name.slice(1)}</td>
+                                        {
+                                            item.ous.map((ou, i)=>{
+                                                return <td key={i+ou}>{ou.roles}</td>
+                                            })
+                                        }
+                                </tr>
+                            })
+                        }
                     </tbody>
                 </table>
             </div>
