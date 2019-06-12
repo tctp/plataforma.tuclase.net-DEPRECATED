@@ -1,8 +1,7 @@
 
 export const TctpTablaDocumentativa = (props) => {
 
-    let { header, children, headerColor } = props;
-    console.log("children!", children);
+    let { header, children, headerColor } = props;    
     !children.length ? children = [children] : children;        
 
     const tableStyle = {

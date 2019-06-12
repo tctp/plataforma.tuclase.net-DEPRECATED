@@ -12,7 +12,8 @@ export default{
         'about':'Quienes somos',
         'contacto':'Contacto',
         'cuestionarios':'Cuestionarios',
-        'descripcion':'Descripción'      
+        'descripcion':'Descripción',      
+        'evaluacion':'Evaluación'      
     },
     'pt-br':{    
         'administrador': 'Administrador',
@@ -27,6 +28,7 @@ export default{
         'about': 'Quem somos',
         'contacto': 'Contato',
         'cuestionarios':'Questionários',
-        'descripcion':'Descrição'   
+        'descripcion':'Descrição',
+        'evaluacion':'Avaliação'    
     }
 }

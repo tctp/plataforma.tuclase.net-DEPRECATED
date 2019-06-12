@@ -22,7 +22,7 @@ export default class extends React.Component {
 
   createTextNode() {
     let array = [];
-    let nodes = document.querySelectorAll("h3 > a");
+    let nodes = document.querySelectorAll("h2 > a");
     let comprobar = document.querySelector(".anchor");
     if (!comprobar) {
       nodes.forEach((node) => {        
