@@ -1,44 +1,8 @@
-[![Deploy to now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/zeit/next.js/tree/master/examples/with-app-layout)
+# Sitio de documentacion TCTP
 
-# With `App` layout example
+## Como documentar
+La aplicación web fue desarrollada con mdx y nextjs. Por lo cual para documentar se debe realizar a través del estandar Markdown, también se pueden agregar componentes React que hemos definido para la documetación.
 
-## How to use
+Ademas el sitio esta preparado para trabajar con multilenguaje, por lo cual, tiene un sistema de localización con 'react-intl'.
 
-### Using `create-next-app`
-
-Execute [`create-next-app`](https://github.com/segmentio/create-next-app) with [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) or [npx](https://github.com/zkat/npx#readme) to bootstrap the example:
-
-```bash
-npx create-next-app --example with-app-layout with-app-layout-app
-# or
-yarn create next-app --example with-app-layout with-app-layout-app
-```
-
-### Download manually
-
-Download the example:
-
-```bash
-curl https://codeload.github.com/zeit/next.js/tar.gz/canary | tar -xz --strip=2 next.js-canary/examples/with-app-layout
-cd with-app-layout
-```
-
-Install it and run:
-
-```bash
-npm install
-npm run dev
-# or
-yarn
-yarn dev
-```
-
-Deploy it to the cloud with [now](https://zeit.co/now) ([download](https://zeit.co/download))
-
-```bash
-now
-```
-
-## The idea behind the example
-
-Shows how to use _app.js to implement a global layout for all pages.
+Para agregar un nuevo contenido se debe agregar la ruta en el componente 'tctpMenuView' y en el titulo en defaultMessage, que luego se traducirá en config/mensajes.js, aquí están los términos para Español y Portugués los cuales están configurados por el momento.
