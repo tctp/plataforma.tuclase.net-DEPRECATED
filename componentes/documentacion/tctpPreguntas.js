@@ -1,11 +1,29 @@
 import { Collapse  } from 'antd';
+import Router from 'next/router'
 const Panel = Collapse.Panel;
 
 export default class extends React.Component {
 
+  state={    
+    hash:null
+  }
   setHash=(e)=> {        
     window.location.hash = e ? e : '';    
   }
+
+  componentDidMount(){
+    this.getUrlHash();
+    Router.events.on('routeChangeComplete', this.handleRouteChange)      
+  }
+
+  handleRouteChange = () => {
+    this.getUrlHash();
+  }
+
+  getUrlHash(){     
+    this.setState({hash:Router.router.asPath.split('#')[1]})
+  }
+  
 
   limpiarCadenaTexto(txt) {
     let r = txt.toLowerCase();
@@ -20,9 +38,9 @@ export default class extends React.Component {
     return r;
   }
 
-  render() {   
-    let hash = window.location.hash.split('#')[1];  
-    let id = this.limpiarCadenaTexto(this.props.titulo);
+  render() {  
+    let {hash} = this.state;      
+    let id = this.limpiarCadenaTexto(this.props.titulo); 
     return (
       <div>
         <Collapse bordered={false} defaultActiveKey={hash} onChange={()=>{this.setHash(id)}}>

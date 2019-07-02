@@ -76,8 +76,7 @@ export default class extends React.Component {
             padding: '10px',
             textAlign: 'left',
             marginBottom: '30px',
-        }        
-        console.log("this.state.arrContenidos", this.state.arrContenidos);
+        }                
         return (
             <div>
                 <table width='90%' style={tableStyle}>

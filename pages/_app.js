@@ -1,3 +1,4 @@
+
 import React from 'react'
 import Router from 'next/router'
 import Head from 'next/head'
@@ -7,12 +8,10 @@ import TctpAnchor from '../componentes/tctpAnchor'
 import TctpCopy from '../componentes/tctpCopy'
 import { Affix, Layout, Row, Col, Select, Icon, Input, Tag, Menu, Dropdown, Button } from 'antd'
 import TctpSideBarNav from '../componentes/tctpSideBarNav'
-import Loading from '../componentes/loading'
 import v from '../config/version.json'
 import './style.css'
 
 const Search = Input.Search;
-const Option = Select.Option;
 const { Header, Content, Footer, Sider } = Layout;
 
 class SmartComponent extends React.Component {
@@ -70,16 +69,20 @@ class SmartComponent extends React.Component {
           <title>Documentación tu clase, tu país</title>
           <meta charSet='utf-8' />
           <meta name='viewport' content='initial-scale=1.0, width=device-width' />
-          <link rel="shortcut icon" type="image/png" href="/static/favicon.ico" />          
+          <link rel="shortcut icon" type="image/png" href="/static/favicon.ico" />                      
+          <script src="https://cdn.tuclase.net/plataforma.tuclase.net/js/tctpAlgoliaDocsearch.js"></script>
         </Head>
+
         <Header style={{ background: '#f0f2f5' }}>
           <Row gutter={12}>
-            <Col xs={24} sm={24} md={6} lg={6} xl={3} xxl={4}>
+            <Col xs={7} sm={13} md={15} lg={17} xl={17} xxl={17}>
               <img src="https://catalogo.tuclase.net/Theme/MainLogo?themeId=2&lastModified=636935293663870000" width="100" />
             </Col>
-            <Col xs={0} sm={0} md={18} lg={18} xl={21} xxl={20}>
-              <Search placeholder="Buscar..." onSearch={value => console.log(value)} style={{ width: '60%' }} />
-              <span style={{ float: 'right', marginRight: '10px' }}>
+            <Col xs={15} sm={10} md={8} lg={6} xl={6} xxl={6}>
+            <Search id="tctpSearch" style={{width:'100%'}} placeholder="Buscar..." onSearch={value => console.log(value)}/>                          
+            </Col>
+            <Col xs={2} sm={1} md={1} lg={1} xl={1} xxl={1}>              
+              <span style={{ float: 'right' }}>              
                 <Dropdown className="localeBtn" overlay={(
                   <Menu onClick={this.handleIdiomaChange}>
                     <Menu.Item key="es-cl">Español</Menu.Item>
@@ -88,47 +91,46 @@ class SmartComponent extends React.Component {
                 )}>                 
                     <Icon type="global" style={{ fontSize: '16px', color: '#666' }}/>
                 </Dropdown>
-
               </span>
             </Col>
           </Row>
         </Header>
-        <Layout>
-          <Sider
-            trigger={null}
-            collapsible
-            collapsed={this.state.collapsed}
-            theme={'light'}
-            style={{ paddingTop: '24px' }}
-            collapsedWidth={0}
-            onBreakpoint={this.onBreakpointChange}
-            breakpoint="md"
-            width={this.state.mobile ? '80%' : 250}>
-            {
-              !this.state.collapsed && !this.state.mobile ?
-                <Affix>
-                  <TctpSideBarNav lang={this.state.lang} />
-                </Affix>
-                :
-                <TctpSideBarNav lang={this.state.lang} />
-            }
-          </Sider>
+        <Layout>   
+          <div style={{minHeight: 800}}>
+              <Sider
+                trigger={null}
+                collapsible
+                collapsed={this.state.collapsed}
+                theme={'light'}
+                style={{ paddingTop: '24px' }}
+                collapsedWidth={0}
+                onBreakpoint={this.onBreakpointChange}
+                breakpoint="md"
+                width={this.state.mobile ? '80%' : 250}>
+                {
+                  !this.state.collapsed && !this.state.mobile ?
+                    <Affix>
+                      <TctpSideBarNav lang={this.state.lang} />
+                    </Affix>
+                    :
+                    <TctpSideBarNav lang={this.state.lang} />
+                }
+              </Sider>
+          </div>       
           <Content style={{ padding: '24px 10px 0px 4%', lineHeight:'24px', background: '#fff', minHeight: 800, minWidth: 400 }}>
             <Icon
               className="trigger"
               type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
               onClick={this.toggle}
-            />
-            
-            <TctpCopy />
+            />            
             <Row gutter={40} type="flex" justify="center" align="top">
               <Col span={19}>
+              <TctpCopy />              
                 {React.cloneElement(this.props.children, { lang: this.state.lang })}
               </Col>
               <Col span={5}>
                   <TctpAnchor isMobile={this.state.mobile} />
-              </Col>
-              
+              </Col>              
             </Row>
             <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
           </Content>
@@ -143,31 +145,25 @@ class SmartComponent extends React.Component {
 }
 
 export default class AppDoc extends App {
+  static async getInitialProps({ Component, ctx }) {
+    let pageProps = {};    
+    if (Component.getInitialProps) {
+      pageProps = await Component.getInitialProps(ctx);      
+    }
 
-  state = {
-    loading: true,
-  }
-
-  componentDidMount() {
-    this.setState({
-      loading: false,
-    });
+    return { pageProps };
   }
 
   render() {
-    const { Component } = this.props
-    // console.log("props", this.props);
-    if (this.state.loading) {
-      return <Loading />
-    } else {
+    const { Component, pageProps } = this.props
       return (
         <Container>
           <SmartComponent>
-            <Component {...this.props} />
+            <Component {...pageProps} />
           </SmartComponent>
         </Container>
       )
-    }
+    
   }
 }
 

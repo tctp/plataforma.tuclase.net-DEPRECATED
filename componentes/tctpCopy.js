@@ -65,14 +65,9 @@ export default class extends React.Component {
   }
 
 
-  render() {
-    if (!this.state.loading) {
+  render() {    
       return (
         <div>&nbsp;</div>
       )
-    } else {
-      return <div>cargando...</div>
-    }
-
   }
 }

@@ -2,7 +2,6 @@ import React from 'react'
 import { Select } from 'antd'
 import Router from 'next/router'
 import TctpMenuView from './tctpMenuView';
-import Loading from './loading'
 
 const Option = Select.Option;
 
@@ -49,9 +48,6 @@ export default class extends React.Component {
         let {openKeys, sys} = this.state;  
         let lang = this.props.lang;
          
-        if(this.state.loading){
-           return <Loading/>
-        }else{
         return (
             <div>
                 <Select defaultValue={sys.length > 0 ? sys : 'Selecciona...'} style={{ width: 250 }} onChange={this.onDropdownSistemaSelectChange}>
@@ -63,6 +59,6 @@ export default class extends React.Component {
                 <TctpMenuView lang={lang} sys={sys} open={openKeys} selected={[this.state.current]} change={this.onOpenChange} click={this.onMenuClick}/>
             </div>
         )
-    }
+ 
     }
 }
