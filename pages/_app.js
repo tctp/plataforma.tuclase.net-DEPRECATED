@@ -6,7 +6,7 @@ import App, { Container } from 'next/app'
 import { addLocaleData } from 'react-intl';
 import TctpAnchor from '../componentes/tctpAnchor'
 import TctpCopy from '../componentes/tctpCopy'
-import { Affix, Layout, Row, Col, Select, Icon, Input, Tag, Menu, Dropdown, Button } from 'antd'
+import { Affix, Layout, Row, Col, Icon, Input, Menu, Dropdown } from 'antd'
 import TctpSideBarNav from '../componentes/tctpSideBarNav'
 import v from '../config/version.json'
 import './style.css'
@@ -61,25 +61,25 @@ class SmartComponent extends React.Component {
 
   render() {
     let {currentYear} = this.state;
-    
-
+  
     return (
       <Layout>
         <Head>
           <title>Documentación tu clase, tu país</title>
           <meta charSet='utf-8' />
           <meta name='viewport' content='initial-scale=1.0, width=device-width' />
-          <link rel="shortcut icon" type="image/png" href="/static/favicon.ico" />                      
-          <script src="https://cdn.tuclase.net/plataforma.tuclase.net/js/tctpAlgoliaDocsearch.js"></script>
+          <link rel="shortcut icon" type="image/png" href="/static/favicon.ico" />                              
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+          <script src="/static/lib/js/tctpAlgoliaDocsearch.js"></script>
         </Head>
-
         <Header style={{ background: '#f0f2f5' }}>
           <Row gutter={12}>
             <Col xs={7} sm={13} md={15} lg={17} xl={17} xxl={17}>
               <img src="https://catalogo.tuclase.net/Theme/MainLogo?themeId=2&lastModified=636935293663870000" width="100" />
             </Col>
             <Col xs={15} sm={10} md={8} lg={6} xl={6} xxl={6}>
-            <Search id="tctpSearch" style={{width:'100%'}} placeholder="Buscar..." onSearch={value => console.log(value)}/>                          
+            {/* <Search id="tctpSearch" style={{width:'100%'}} placeholder="Buscar..."/>                           */}
+            <Search id="tctpSearch" style={{width:'100%'}} placeholder="Buscar..."/> 
             </Col>
             <Col xs={2} sm={1} md={1} lg={1} xl={1} xxl={1}>              
               <span style={{ float: 'right' }}>              
