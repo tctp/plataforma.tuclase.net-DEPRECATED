@@ -49,8 +49,8 @@ export default class extends React.Component {
         let lang = this.props.lang;
          
         return (
-            <div>
-                <Select defaultValue={sys.length > 0 ? sys : 'Selecciona...'} style={{ width: 250 }} onChange={this.onDropdownSistemaSelectChange}>
+            <div style={{paddingLeft:'20px', width:'250px'}}>
+                <Select defaultValue={sys.length > 0 ? sys : 'Selecciona...'} style={{ width: '100%' }} onChange={this.onDropdownSistemaSelectChange}>
                     <Option value="tctp-lms-bs">Lms Brightspace</Option>
                     <Option value="tctp-catalogo-bs">Catálogo Brightspace</Option>
                     <Option value="tctp-comunidad-hh">Comunidad Humhub</Option>
