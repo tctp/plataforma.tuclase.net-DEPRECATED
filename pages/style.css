@@ -2,25 +2,6 @@ body{
   line-height: 20px;  
 }
 
-
-.algolia-autocomplete{
-  display: block !important;
-}
-
-.ant-layout{
-  background: #FFF !important;
-}
-
-
-
-@media (max-width: 600px) {
-  .ant-layout-header{
-    padding: 0 10px;
-  }
-}
-
-
-
 table{
   width: 100%;
 }
@@ -300,4 +281,37 @@ turqueza: #1abc9c */
   padding-bottom: 56.25%;
   height: 0;
   overflow: hidden;
+}
+
+/* Algolia */
+
+.ds-dropdown-menu{
+  z-index: 9999 !important;
+}
+
+.algolia-autocomplete{
+  display: block !important;
+}
+
+
+/* Ant-design */
+
+.ant-layout{
+  background: #FFF !important;
+}
+
+
+
+@media (max-width: 600px) {
+  .ant-layout-header{
+    padding: 0 10px;
+  }
+}
+
+.ant-input-search-icon{
+cursor:auto !important;
+color:#ccc;
+}
+.ant-input-search-icon:hover{
+  color:#ccc;
 }

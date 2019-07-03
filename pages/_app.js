@@ -77,8 +77,7 @@ class SmartComponent extends React.Component {
             <Col xs={7} sm={13} md={15} lg={17} xl={17} xxl={17}>
               <img src="https://catalogo.tuclase.net/Theme/MainLogo?themeId=2&lastModified=636935293663870000" width="100" />
             </Col>
-            <Col xs={15} sm={10} md={8} lg={6} xl={6} xxl={6}>
-            {/* <Search id="tctpSearch" style={{width:'100%'}} placeholder="Buscar..."/>                           */}
+            <Col xs={15} sm={10} md={8} lg={6} xl={6} xxl={6}>            
             <Search id="tctpSearch" style={{width:'100%'}} placeholder="Buscar..."/> 
             </Col>
             <Col xs={2} sm={1} md={1} lg={1} xl={1} xxl={1}>              
@@ -105,7 +104,7 @@ class SmartComponent extends React.Component {
                 style={{ paddingTop: '24px' }}
                 collapsedWidth={0}
                 onBreakpoint={this.onBreakpointChange}
-                breakpoint="md"
+                breakpoint="lg"
                 width={this.state.mobile ? '80%' : 250}>
                 {
                   !this.state.collapsed && !this.state.mobile ?
@@ -123,13 +122,13 @@ class SmartComponent extends React.Component {
               type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
               onClick={this.toggle}
             />            
-            <Row gutter={40} type="flex" justify="center" align="top">
-              <Col span={19}>
+            <Row gutter={20} type="flex" justify="center" align="top">
+              <Col xs={24} sm={24} md={16} lg={19} xl={19} xxl={19}>
               <TctpCopy />              
                 {React.cloneElement(this.props.children, { lang: this.state.lang })}
               </Col>
-              <Col span={5}>
-                  <TctpAnchor isMobile={this.state.mobile} />
+              <Col xs={0} sm={0} md={8} lg={5} xl={5} xxl={5}>
+                  <TctpAnchor />
               </Col>              
             </Row>
             <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
