@@ -46,6 +46,7 @@ const SysMenu = (props) => {
                     <Menu.Item key={`herramientas-de-comunicacion_${lang}`}><Link href={`/${sys}/editor/herramientas-de-comunicacion_${lang}`}><a>Herramientas de comunicación</a></Link></Menu.Item>
                     <SubMenu key="evaluacion" title={<FormattedMessage id="evaluacion" defaultMessage="Evaluación" />} className="menuTercerNivel">                    
                         <Menu.Item key={`cuestionarios_${lang}`}><Link href={`/${sys}/editor/evaluacion/cuestionarios_${lang}`}><a><FormattedMessage id="cuestionarios" defaultMessage="Cuestionarios" /></a></Link></Menu.Item>                            
+                        <Menu.Item key={`buzon_${lang}`}><Link href={`/${sys}/editor/evaluacion/buzon_${lang}`}><a><FormattedMessage id="buzon" defaultMessage="Buzon" /></a></Link></Menu.Item>                            
                     </SubMenu>
                 </SubMenu>
                 <SubMenu key="disenador" title={<FormattedMessage id="disenador" defaultMessage="Diseñador Gráfico" />} onTitleClick={() => Router.push(`/${sys}/disenador-grafico/home_${lang}`)}>

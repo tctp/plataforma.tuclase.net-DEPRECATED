@@ -1,0 +1,79 @@
+import TctpVideo from '../../../../componentes/documentacion/tctpVideo'
+import TctpPreguntas from '../../../../componentes/documentacion/tctpPreguntas'
+import TctpOuTipoTabla from '../../../../componentes/documentacion/tctpOuTipoTabla'
+
+# Atribuições
+
+## Conheça o básico
+A ferramenta de caixa de correio permite que os aprendizes carreguem material relacionado às atividades do curso, eliminando assim a necessidade de enviar seu trabalho por email ou outros sistemas informais.
+
+Com a ferramenta de caixa de correio, você pode configurar pastas para cada caixa de correio; associar uma caixa de correio a elementos de qualificação, rubricas e restringir o acesso a pastas da caixa de correio por data e hora, bem como a condição ou atribuir permissões especiais de acesso.
+Cada pasta permite que você veja as horas de envio dos usuários, baixe as remessas para o seu computador, visualize as remessas na página, deixe comentários e retorne remessas com avaliações e comentários.
+
+Este tutorial em vídeo em espanhol ajudará você a entender como criar e configurar caixas de correio:
+
+<TctpVideo video={'https://www.youtube.com/watch?v=nsWrJMclFXo'} />
+
+## Avaliar um atribuições
+
+Os envios podem ser avaliados rapidamente na ferramenta de caixa de correio e você pode deixar comentários para os alunos.
+Este tutorial mostra como avaliar as apresentações dos alunos nas caixas de correio.
+
+<TctpVideo video={'https://www.youtube.com/watch?v=_oYTUocjAzs'} />
+
+<TctpPreguntas    
+    titulo={'¿Cuándo un tutor retroalimenta un buzón, activa notificaciones al aprendiz en la plataforma?'}
+    html={'Las notificaciones en la plataforma asociadas al buzón, se activán cuando se califica o se envía un mensaje. También se pueden activar notificaciones a través de correo electrónico, pero esta configuración es personal y la deberá realizar el aprendiz.'}
+    imgPath={'/static/imagenes/buzon/mensaje-desde-buzon.png'}
+/>
+
+## Asignar calificaciones a un buzón
+
+Los buzones pueden ser calificados y se pueden asociar a un elemento de calificación para luego ser evaluados.
+Este tutorial te muestra cómo asociarlos.
+
+<TctpVideo video={'https://www.youtube.com/watch?v=CE_ExL_6vrc'} />
+
+## Agregar restricciones a un buzón
+Todos los buzones pueden ser restringido para establecer la disponibilidad, las condiciones de liberación y el acceso especial para sus alumnos. Este tutorial muestra cómo agregar restricciones.
+<TctpVideo video={'https://www.youtube.com/watch?v=2kWqYA1z7QI'} />
+
+<TctpPreguntas    
+    titulo={'¿Se pueden restringir los buzones por secciones?'}
+    html={'Si se puede y para realizar esta configuración se debe crear un buzón en la tabla de contenidos por cada sección existente y a cada buzón asociar una condición de publicación a la sección.'}
+    imgPath={'/static/imagenes/buzon/buzon-restriccion-seccion.png'}
+/>
+
+<TctpPreguntas    
+    titulo={'¿Puedo hacer invisible un buzón a los aprendices sin afectar el progreso de los usuarios?'}
+    html={'Los buzones que ya se encuentran publicados, se pueden ocultar (esto deja el tema en estado borrador) a los aprendices sin afectar el "progreso de contenidos visitados", ya que, el indicador se ajustará al total de recursos disponibles en la tabla de contenidos. Siempre recomendamos que los editores eliminen el tema que no se utilizará, esto puede complicar la administración del contenido y generar confusiones.'}
+    imgPath={'/static/imagenes/buzon/buzon-oculto.png'}
+/>
+
+## Links de referencias
+
+* <a href="https://documentation.brightspace.com/EN/semester_start/-/instructor/attach_assignments_folder_to_grade_item.htm?Highlight=grade%20to%20assignments" target="_blank">Adjuntar una asignación a un elemento de calificación</a>
+* <a href="https://documentation.brightspace.com/es-mx/le/assignments/instructor/add_feedback_evaluations.htm?Highlight=assignment" target="_blank">Agregar comentarios y evaluaciones a las asignaciones</a>
+* <a href="https://documentation.brightspace.com/es-mx/le/assignments/instructor/set_release_conditions.htm?Highlight=assignment" target="_blank">Configurar las condiciones de publicación y el acceso especial en Asignaciones</a>
+* <a href="https://documentation.brightspace.com/es-mx/le/assignments/instructor/about_assessing_submissions.htm?Highlight=assignment" target="_blank">Acerca de la evaluación de asignaciones</a>
+
+
+## Accesos por rol
+
+<TctpOuTipoTabla 
+    organizacion={{
+        escritura:['AdminTuclase', 'AdminLocal'],
+    }} 
+    campus={{
+        escritura:['AdminTuclase', 'AdminLocal', 'AdminUnidadNegocio'],        
+    }} 
+    plantillas={{
+        lectura:['RevisorPlantilla', 'RevisorPlantillaS', 'RevPlantillaSOfertaS'], 
+        escritura:['EditorPlantilla', 'EditorPlantillaS', 'EdPlantillaSOfertaS', 'JefeContenido']
+    }} 
+    ofertas={{
+        lectura:['RevPlantillaSOfertaS', 'RevisorOferta', 'RevisorOfertaS', 'Tutor'], 
+        escritura:['EdPlantillaSOfertaS', 'EditorOfertaS', 'EditorOferta', 'SupervisorTutor', 'Instructor', 'JefeContenido']        
+    }} 
+/>
+

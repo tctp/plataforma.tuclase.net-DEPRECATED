@@ -13,7 +13,8 @@ export default{
         'contacto':'Contacto',
         'cuestionarios':'Cuestionarios',
         'descripcion':'Descripción',      
-        'evaluacion':'Evaluación'      
+        'evaluacion':'Evaluación',      
+        'buzon':'Buzón'      
     },
     'pt-br':{    
         'administrador': 'Administrador',
@@ -29,6 +30,7 @@ export default{
         'contacto': 'Contato',
         'cuestionarios':'Questionários',
         'descripcion':'Descrição',
-        'evaluacion':'Avaliação'    
+        'evaluacion':'Avaliação',
+        'buzon':'Atribuições'     
     }
 }
