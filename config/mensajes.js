@@ -14,7 +14,8 @@ export default{
         'cuestionarios':'Cuestionarios',
         'descripcion':'Descripción',      
         'evaluacion':'Evaluación',      
-        'buzon':'Buzón'      
+        'buzon':'Buzón',      
+        'calificaciones':'Calificaciones'      
     },
     'pt-br':{    
         'administrador': 'Administrador',
@@ -31,6 +32,7 @@ export default{
         'cuestionarios':'Questionários',
         'descripcion':'Descrição',
         'evaluacion':'Avaliação',
-        'buzon':'Atribuições'     
+        'buzon':'Atribuições',
+        'calificaciones':'Classificações'     
     }
 }
