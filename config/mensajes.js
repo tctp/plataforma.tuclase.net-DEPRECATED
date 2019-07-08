@@ -15,7 +15,8 @@ export default{
         'descripcion':'Descripción',      
         'evaluacion':'Evaluación',      
         'buzon':'Buzón',      
-        'calificaciones':'Calificaciones'      
+        'calificaciones':'Calificaciones',      
+        'debates':'Debates'      
     },
     'pt-br':{    
         'administrador': 'Administrador',
@@ -33,6 +34,7 @@ export default{
         'descripcion':'Descrição',
         'evaluacion':'Avaliação',
         'buzon':'Atribuições',
-        'calificaciones':'Classificações'     
+        'calificaciones':'Classificações',     
+        'debates':'Debates'     
     }
 }

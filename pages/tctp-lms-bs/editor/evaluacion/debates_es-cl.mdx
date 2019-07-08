@@ -1,0 +1,43 @@
+import TctpVideo from '../../../../componentes/documentacion/tctpVideo'
+import TctpPreguntas from '../../../../componentes/documentacion/tctpPreguntas'
+import TctpOuTipoTabla from '../../../../componentes/documentacion/tctpOuTipoTabla'
+
+# Debates
+
+## Conocer lo básico
+La herramienta de debates es un área donde los aprendices pueden compartir ideas, plantear preguntas o compartir archivos con sus pares o tutores. 
+Los estudiantes se pueden suscribir a foros, temas, publicaciones o cadenas de su interés. 
+En la página Notificaciones (menú personal de la minibarra / Notificaciones), los usuarios pueden especificar cómo recibirán las actualizaciones sobre los elementos de debate a los que se suscribieron. Esta configuración es de forma personal, por lo cual, no se pueden pre-configurar las notificaciones para todos los usuarios.
+Este video tutorial te ayudará a entender como crear y configurar debates:
+
+<TctpVideo video={'https://www.youtube.com/watch?v=fEqSKm4dLKU'} />
+
+
+
+## Links de referencias
+
+* <a href="https://documentation.brightspace.com/EN/semester_start/-/instructor/attach_assignments_folder_to_grade_item.htm?Highlight=grade%20to%20assignments" target="_blank">Adjuntar una asignación a un elemento de calificación</a>
+* <a href="https://documentation.brightspace.com/es-mx/le/assignments/instructor/add_feedback_evaluations.htm?Highlight=assignment" target="_blank">Agregar comentarios y evaluaciones a las asignaciones</a>
+* <a href="https://documentation.brightspace.com/es-mx/le/assignments/instructor/set_release_conditions.htm?Highlight=assignment" target="_blank">Configurar las condiciones de publicación y el acceso especial en Asignaciones</a>
+* <a href="https://documentation.brightspace.com/es-mx/le/assignments/instructor/about_assessing_submissions.htm?Highlight=assignment" target="_blank">Acerca de la evaluación de asignaciones</a>
+
+
+## Accesos por rol
+
+<TctpOuTipoTabla 
+    organizacion={{
+        escritura:['AdminTuclase', 'AdminLocal'],
+    }} 
+    campus={{
+        escritura:['AdminTuclase', 'AdminLocal', 'AdminUnidadNegocio'],        
+    }} 
+    plantillas={{
+        lectura:['RevisorPlantilla', 'RevisorPlantillaS', 'RevPlantillaSOfertaS'], 
+        escritura:['EditorPlantilla', 'EditorPlantillaS', 'EdPlantillaSOfertaS', 'JefeContenido']
+    }} 
+    ofertas={{
+        lectura:['RevPlantillaSOfertaS', 'RevisorOferta', 'RevisorOfertaS', 'Tutor'], 
+        escritura:['EdPlantillaSOfertaS', 'EditorOfertaS', 'EditorOferta', 'SupervisorTutor', 'Instructor', 'JefeContenido']        
+    }} 
+/>
+
