@@ -122,7 +122,7 @@ class SmartComponent extends React.Component {
               type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
               onClick={this.toggle}
             />            
-            <Row gutter={20} type="flex" justify="center" align="top">
+            <Row gutter={48} type="flex" justify="center" align="top">
               <Col xs={24} sm={24} md={16} lg={19} xl={19} xxl={19}>
               <TctpCopy />              
                 {React.cloneElement(this.props.children, { lang: this.state.lang })}

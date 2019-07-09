@@ -53,7 +53,7 @@ export default class extends React.Component {
     return (
       <div>
         <br />
-        <div style={{width:'95%'}}>
+        <div style={{width:'100%'}}>
             {this.setResourcesRender(this.props)}
             <Button type="link" icon="eye" style={{ float: 'right' }} onClick={this.showDrawer}>Traducir subtítulos</Button>
         </div>
