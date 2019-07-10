@@ -36,7 +36,7 @@ export default class extends React.Component {
   render() {      
       return(
       <div>
-        <Button type="link" onClick={this.showModal}><Icon type="video-camera" />Ver video explicativo</Button>        
+        <Button type="default" icon="video-camera" onClick={this.showModal}>Ver video explicativo</Button>        
           <Modal
             title={this.props.titulo}
             width={'50%'}

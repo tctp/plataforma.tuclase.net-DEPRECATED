@@ -55,7 +55,7 @@ export default class extends React.Component {
         <br />
         <div style={{width:'100%'}}>
             {this.setResourcesRender(this.props)}
-            <Button type="link" icon="eye" style={{ float: 'right' }} onClick={this.showDrawer}>Traducir subtítulos</Button>
+            <Button type="default" icon="eye" style={{ float: 'right' }} onClick={this.showDrawer}>Traducir subtítulos</Button>
         </div>
         <Drawer
           title="Traducción de subtitulos"

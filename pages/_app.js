@@ -70,6 +70,7 @@ class SmartComponent extends React.Component {
           <meta name='viewport' content='initial-scale=1.0, width=device-width' />
           <link rel="shortcut icon" type="image/png" href="/static/favicon.ico" />                              
           <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+          <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/antd/3.20.1/antd.min.css"/>
           <script src="/static/lib/js/tctpAlgoliaDocsearch.js"></script>
         </Head>
         <Header style={{ background: '#f0f2f5' }}>
