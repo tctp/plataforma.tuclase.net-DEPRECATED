@@ -16,7 +16,11 @@ export default{
         'evaluacion':'Evaluación',      
         'buzon':'Buzón',      
         'calificaciones':'Calificaciones',      
-        'debates':'Debates'      
+        'debates':'Debates',      
+        'premios':'Premios',      
+        'lista de control':'Lista de control',      
+        'encuestas':'Encuestas',      
+        'autoevaluacion':'Autoevaluacion',      
     },
     'pt-br':{    
         'administrador': 'Administrador',
@@ -34,7 +38,10 @@ export default{
         'descripcion':'Descrição',
         'evaluacion':'Avaliação',
         'buzon':'Atribuições',
-        'calificaciones':'Classificações',     
-        'debates':'Debates'     
+        'calificaciones':'Classificações',
+        'debates':'Debates',     
+        'premios':'Prêmios',
+        'encuestas':'Pesquisas',        
+        'autoevaluacion':'Autoevaluacion'        
     }
 }

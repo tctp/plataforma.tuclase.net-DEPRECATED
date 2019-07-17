@@ -47,7 +47,7 @@ export default class extends React.Component {
           <Panel header={this.props.titulo} key={id} id={id}>
            <p dangerouslySetInnerHTML={{__html: this.props.html}}></p>
             {
-              this.props.imgPath ? <img src={this.props.imgPath} /> : <span></span>
+              this.props.imgPath ? <img src={this.props.imgPath} style={{width:'100%', maxWidth:'900px'}}/> : <span></span>
             }
           </Panel>
         </Collapse>

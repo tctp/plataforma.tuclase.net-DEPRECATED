@@ -49,6 +49,10 @@ const SysMenu = (props) => {
                         <Menu.Item key={`buzon_${lang}`}><Link href={`/${sys}/editor/evaluacion/buzon_${lang}`}><a><FormattedMessage id="buzon" defaultMessage="Buzon" /></a></Link></Menu.Item>                            
                         <Menu.Item key={`calificaciones_${lang}`}><Link href={`/${sys}/editor/evaluacion/calificaciones_${lang}`}><a><FormattedMessage id="calificaciones" defaultMessage="Calificaciones" /></a></Link></Menu.Item>                            
                         <Menu.Item key={`debates_${lang}`}><Link href={`/${sys}/editor/evaluacion/debates_${lang}`}><a><FormattedMessage id="debates" defaultMessage="Debates" /></a></Link></Menu.Item>                            
+                        <Menu.Item key={`premios_${lang}`}><Link href={`/${sys}/editor/evaluacion/premios_${lang}`}><a><FormattedMessage id="premios" defaultMessage="Premios" /></a></Link></Menu.Item>                            
+                        <Menu.Item key={`lista-de-control_${lang}`}><Link href={`/${sys}/editor/evaluacion/lista-de-control_${lang}`}><a><FormattedMessage id="lista-de-control" defaultMessage="Lista de control" /></a></Link></Menu.Item>                            
+                        <Menu.Item key={`encuestas_${lang}`}><Link href={`/${sys}/editor/evaluacion/encuestas_${lang}`}><a><FormattedMessage id="encuestas" defaultMessage="Encuestas" /></a></Link></Menu.Item>                            
+                        <Menu.Item key={`encuestas_${lang}`}><Link href={`/${sys}/editor/evaluacion/autoevaluacion_${lang}`}><a><FormattedMessage id="autoevaluacion" defaultMessage="Autoevaluacion" /></a></Link></Menu.Item>                            
                     </SubMenu>
                 </SubMenu>
                 <SubMenu key="disenador" title={<FormattedMessage id="disenador" defaultMessage="Diseñador Gráfico" />} onTitleClick={() => Router.push(`/${sys}/disenador-grafico/home_${lang}`)}>
