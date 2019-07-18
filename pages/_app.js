@@ -107,14 +107,7 @@ class SmartComponent extends React.Component {
                 onBreakpoint={this.onBreakpointChange}
                 breakpoint="lg"
                 width={this.state.mobile ? '80%' : 250}>
-                {
-                  !this.state.collapsed && !this.state.mobile ?
-                    <Affix>
-                      <TctpSideBarNav lang={this.state.lang} />
-                    </Affix>
-                    :
                     <TctpSideBarNav lang={this.state.lang} />
-                }
               </Sider>
           </div>       
           <Content style={{ padding: '24px 10px 0px 4%', lineHeight:'24px', background: '#fff', minHeight: 800, minWidth: 400 }}>

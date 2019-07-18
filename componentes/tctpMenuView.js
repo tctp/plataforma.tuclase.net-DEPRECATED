@@ -47,13 +47,17 @@ const SysMenu = (props) => {
                     <SubMenu key="evaluacion" title={<FormattedMessage id="evaluacion" defaultMessage="Evaluación" />} className="menuTercerNivel">                    
                         <Menu.Item key={`cuestionarios_${lang}`}><Link href={`/${sys}/editor/evaluacion/cuestionarios_${lang}`}><a><FormattedMessage id="cuestionarios" defaultMessage="Cuestionarios" /></a></Link></Menu.Item>                            
                         <Menu.Item key={`buzon_${lang}`}><Link href={`/${sys}/editor/evaluacion/buzon_${lang}`}><a><FormattedMessage id="buzon" defaultMessage="Buzon" /></a></Link></Menu.Item>                            
-                        <Menu.Item key={`calificaciones_${lang}`}><Link href={`/${sys}/editor/evaluacion/calificaciones_${lang}`}><a><FormattedMessage id="calificaciones" defaultMessage="Calificaciones" /></a></Link></Menu.Item>                            
-                        <Menu.Item key={`debates_${lang}`}><Link href={`/${sys}/editor/evaluacion/debates_${lang}`}><a><FormattedMessage id="debates" defaultMessage="Debates" /></a></Link></Menu.Item>                            
+                        <Menu.Item key={`calificaciones_${lang}`}><Link href={`/${sys}/editor/evaluacion/calificaciones_${lang}`}><a><FormattedMessage id="calificaciones" defaultMessage="Calificaciones" /></a></Link></Menu.Item>                                                    
                         <Menu.Item key={`premios_${lang}`}><Link href={`/${sys}/editor/evaluacion/premios_${lang}`}><a><FormattedMessage id="premios" defaultMessage="Premios" /></a></Link></Menu.Item>                            
                         <Menu.Item key={`lista-de-control_${lang}`}><Link href={`/${sys}/editor/evaluacion/lista-de-control_${lang}`}><a><FormattedMessage id="lista-de-control" defaultMessage="Lista de control" /></a></Link></Menu.Item>                            
                         <Menu.Item key={`encuestas_${lang}`}><Link href={`/${sys}/editor/evaluacion/encuestas_${lang}`}><a><FormattedMessage id="encuestas" defaultMessage="Encuestas" /></a></Link></Menu.Item>                            
-                        <Menu.Item key={`encuestas_${lang}`}><Link href={`/${sys}/editor/evaluacion/autoevaluacion_${lang}`}><a><FormattedMessage id="autoevaluacion" defaultMessage="Autoevaluacion" /></a></Link></Menu.Item>                            
+                        <Menu.Item key={`autoevaluacion_${lang}`}><Link href={`/${sys}/editor/evaluacion/autoevaluacion_${lang}`}><a><FormattedMessage id="autoevaluacion" defaultMessage="Autoevaluacion" /></a></Link></Menu.Item>                            
+                        <Menu.Item key={`rubricas_${lang}`}><Link href={`/${sys}/editor/evaluacion/rubricas_${lang}`}><a><FormattedMessage id="rubricas" defaultMessage="Rubricas" /></a></Link></Menu.Item>                            
                     </SubMenu>
+                    <SubMenu key="comunicacion" title={<FormattedMessage id="comunicacion" defaultMessage="Comunicación" />} className="menuTercerNivel">
+                        <Menu.Item key={`debates_${lang}`}><Link href={`/${sys}/editor/comunicacion/debates_${lang}`}><a><FormattedMessage id="debates" defaultMessage="Debates" /></a></Link></Menu.Item>                            
+                        <Menu.Item key={`agentes-inteligentes_${lang}`}><Link href={`/${sys}/editor/comunicacion/agentes-inteligentes_${lang}`}><a><FormattedMessage id="agentes-inteligentes" defaultMessage="Agentes inteligentes" /></a></Link></Menu.Item>                            
+                    </SubMenu>                                       
                 </SubMenu>
                 <SubMenu key="disenador" title={<FormattedMessage id="disenador" defaultMessage="Diseñador Gráfico" />} onTitleClick={() => Router.push(`/${sys}/disenador-grafico/home_${lang}`)}>
                     {/* no hay contenido por el monmento */}

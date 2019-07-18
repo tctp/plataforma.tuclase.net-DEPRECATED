@@ -20,7 +20,8 @@ export default{
         'premios':'Premios',      
         'lista de control':'Lista de control',      
         'encuestas':'Encuestas',      
-        'autoevaluacion':'Autoevaluacion',      
+        'autoevaluacion':'Autoevaluación',      
+        'agentes inteligentes':'Agentes Inteligentes',      
     },
     'pt-br':{    
         'administrador': 'Administrador',
@@ -42,6 +43,6 @@ export default{
         'debates':'Debates',     
         'premios':'Prêmios',
         'encuestas':'Pesquisas',        
-        'autoevaluacion':'Autoevaluacion'        
+        'agentes inteligentes':'Agentes inteligentes'        
     }
 }
