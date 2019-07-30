@@ -1,5 +1,4 @@
 const sm = require('sitemap')
-const path = require('path')
 const glob = require('glob')
 const fs = require('fs')
 
@@ -8,14 +7,14 @@ const sitemap = sm.createSitemap({
   cacheTime: 600000 // 600 sec - cache purge period
 })
 
-const setup = ({ server }) => {
-  glob("out/**/index.html", function (er, files) {
-    files.forEach((file, index) => {            
+const setup = ({ server }) => {  
+  glob("out/**/*.html", function (er, files) {    
+    files.forEach((file, index) => {          
       sitemap.add({
         url: `${file.replace('out/', '')}`,
         changefreq: 'daily',
         priority: 0.9
-      })
+      })      
     })
 
     sitemap.toXML((err, xml) => {

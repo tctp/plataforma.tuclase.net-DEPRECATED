@@ -12,4 +12,5 @@ if (typeof require !== 'undefined') {
 
 module.exports = withCss( withMDX({
   pageExtensions: ['js', 'jsx', 'md', 'mdx'],
+  exportTrailingSlash: true
 }))

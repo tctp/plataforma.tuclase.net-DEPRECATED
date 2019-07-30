@@ -8,7 +8,9 @@
     "export": "npm run build && next export && npm run sitemap"
   },
   "dependencies": {
+    "@mdx-js/loader": "^1.1.1",
     "@mdx-js/mdx": "^0.16.0",
+    "@next/mdx": "^9.0.2",
     "@zeit/next-less": "^1.0.1",
     "algoliasearch": "^3.33.0",
     "antd": "^3.10.9",
