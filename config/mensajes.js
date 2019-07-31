@@ -21,7 +21,8 @@ export default{
         'lista de control':'Lista de control',      
         'encuestas':'Encuestas',      
         'autoevaluacion':'Autoevaluación',      
-        'agentes inteligentes':'Agentes Inteligentes',      
+        'agentes inteligentes':'Agentes Inteligentes', 
+        'aulas virtuales':'Aulas virtuales'     
     },
     'pt-br':{    
         'administrador': 'Administrador',
@@ -43,6 +44,7 @@ export default{
         'debates':'Debates',     
         'premios':'Prêmios',
         'encuestas':'Pesquisas',        
-        'agentes inteligentes':'Agentes inteligentes'        
+        'agentes inteligentes':'Agentes inteligentes',
+        'aulas virtuales':'Salas de aula virtuais'
     }
 }

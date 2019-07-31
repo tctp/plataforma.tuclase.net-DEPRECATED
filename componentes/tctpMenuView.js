@@ -57,6 +57,8 @@ const SysMenu = (props) => {
                     <SubMenu key="comunicacion" title={<FormattedMessage id="comunicacion" defaultMessage="Comunicación" />} className="menuTercerNivel">
                         <Menu.Item key={`debates_${lang}`}><Link href={`/${sys}/editor/comunicacion/debates_${lang}`}><a><FormattedMessage id="debates" defaultMessage="Debates" /></a></Link></Menu.Item>                            
                         <Menu.Item key={`agentes-inteligentes_${lang}`}><Link href={`/${sys}/editor/comunicacion/agentes-inteligentes_${lang}`}><a><FormattedMessage id="agentes-inteligentes" defaultMessage="Agentes inteligentes" /></a></Link></Menu.Item>                            
+                        <Menu.Item key={`aulas-virtuales_${lang}`}><Link href={`/${sys}/editor/comunicacion/aulas-virtuales_${lang}`}><a><FormattedMessage id="aulas-virtuales" defaultMessage="Aulas virtuales" /></a></Link></Menu.Item>                            
+                        <Menu.Item key={`retroalimentacion_${lang}`}><Link href={`/${sys}/editor/comunicacion/retroalimentacion_${lang}`}><a><FormattedMessage id="retroalimentacion" defaultMessage="Retroalimentación" /></a></Link></Menu.Item>                            
                     </SubMenu>                                       
                 </SubMenu>
                 <SubMenu key="disenador" title={<FormattedMessage id="disenador" defaultMessage="Diseñador Gráfico" />} onTitleClick={() => Router.push(`/${sys}/disenador-grafico/home_${lang}`)}>
