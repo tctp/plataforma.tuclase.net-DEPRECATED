@@ -1,0 +1,74 @@
+import TctpVideo from '../../../../../componentes/documentacion/tctpVideo'
+import TctpPreguntas from '../../../../../componentes/documentacion/tctpPreguntas'
+import TctpOuTipoTabla from '../../../../../componentes/documentacion/tctpOuTipoTabla'
+
+# Agentes Inteligentes
+
+## Conocer lo básico
+Los agentes inteligentes sirven para: 
+
+- Monitorear la actividad de inicio de sesión
+- La actividad del curso
+- Asociar a las condiciones de publicación en su curso
+
+<TctpVideo video={'https://www.youtube.com/watch?v=JrD8FnZHkSI'} />
+
+## Programar la ejecución de un agente inteligente
+Puedes optimizar las notificaciones de agentes inteligentes configurando una programación de envío. 
+Este tutorial muestra cómo ver y editar la programación de un agente inteligente.
+<TctpVideo video={'https://www.youtube.com/watch?v=gkfWdu2rEjY'} />
+
+## Ejecutar manualmente
+<TctpVideo video={'https://www.youtube.com/watch?v=-6MPTdV8N0w'} />
+
+## Realizar una ejecución de práctica
+<TctpVideo video={'https://www.youtube.com/watch?v=EJcga-TRLR8'} />
+
+## Eliminar y restaurar agentes inteligentes    
+<TctpVideo video={'https://www.youtube.com/watch?v=dyWk9TRJx5c'} />
+
+
+<TctpPreguntas    
+    titulo={'¿Qué direcciones de correo electrónico especiales puedo utilizar?'}
+    html={'Puede utilizar las siguientes cadenas de reemplazo en los campos de direcciones <b>Para</b>, <b>Cc</b>y <b>Cco</b> a fin de enviar el correo electrónico de agente a destinatarios específicos: <ul><li><b>{InitiatingUser}</b>: el usuario que lleva a cabo las acciones o condiciones necesarias para coincidir con los criterios del agente inteligente.</li> <li><b>{InitiatingUserAuditors}</b>: los auditores del usuario que llevan a cabo las acciones necesarias para coincidir con los criterios del agente inteligente.</li></ul>'}    
+/>
+
+
+
+<TctpPreguntas    
+    titulo={'¿Qué cadenas de reemplazo (string replacement) puedo utilizar en el asunto y el mensaje?'}
+    html={'Las siguientes son cadenas de reemplazo que puede utilizar en la línea del asunto y en el mensaje del correo electrónico. <ul><li><b>{OrgName}<b>: el nombre de la organización.</li><li><b>{OrgUnitCode}<b>: el código para la unidad de organización.</li><li><b>{OrgUnitName}<b>: el nombre de la unidad de organización.</li><li><b>{OrgUnitStartDate}<b>: la fecha de inicio especificada para la unidad de organización.</li><li><b>{OrgUnitEndDate}<b>: la fecha final especificada para la unidad de organización.</li><li><b>{OrgUnitId}<b>: la ID de la unidad de organización.</li><li><b>{InitiatingUserFirstName}<b>: el nombre del usuario inicial.</li><li><b>{InitiatingUserLastName}<b>: el apellido del usuario inicial.</li><li><b>{InitiatingUserUserName}<b>: el nombre de usuario del usuario inicial.</li><li><b>{InitiatingUserOrgDefinedId}<b>: la ID definida por organización del usuario inicial.</li><li><b>{LoginPath}<b>: la dirección de la ruta de inicio de sesión para el sitio.</li><li><b>{LastCourseAccessDate}<b>: la última fecha de acceso del usuario inicial al curso.</li><li><b>{LastLoginDate}<b>: la última fecha de inicio de sesión del usuario inicial.</li></ul>'}
+    imgPath={'/static/imagenes/agentes-inteligentes/asunto-mensaje.png'}
+/>
+
+
+
+
+
+
+
+## Links de referencias
+
+* <a href="https://documentation.brightspace.com/es-mx/le/intelligent_agents/instructor/using_agents.htm?tocpath=Instructores%7CConfigurar%20e%20impartir%20un%20curso%7CConfigurar%20un%20curso%7CBuscar%20actividad%20que%20coincida%20con%20ciertos%20criterios%7CUsar%20agentes%7C_____0" target="_blank">Usar agentes</a>
+* <a href="https://documentation.brightspace.com/es-mx/le/intelligent_agents/instructor/create_agent.htm?tocpath=Instructores%7CConfigurar%20e%20impartir%20un%20curso%7CConfigurar%20un%20curso%7CBuscar%20actividad%20que%20coincida%20con%20ciertos%20criterios%7CUsar%20agentes%7C_____1" target="_blank">Crear un agente</a>
+* <a href="https://documentation.brightspace.com/es-mx/le/intelligent_agents/instructor/run_agent_manually.htm?Highlight=agentes" target="_blank">Ejecución de un agente en forma manual</a>
+
+
+## Accesos por rol
+
+<TctpOuTipoTabla 
+    organizacion={{
+        escritura:['AdminTuclase', 'AdminLocal'],
+    }} 
+    campus={{
+        escritura:['AdminTuclase', 'AdminLocal', 'AdminUnidadNegocio'],        
+    }} 
+    plantillas={{
+        lectura:['RevisorPlantilla', 'RevisorPlantillaS', 'RevPlantillaSOfertaS'], 
+        escritura:['EditorPlantilla', 'EditorPlantillaS', 'EdPlantillaSOfertaS', 'JefeContenido']
+    }} 
+    ofertas={{
+        lectura:['RevPlantillaSOfertaS', 'RevisorOferta', 'RevisorOfertaS', 'Tutor'], 
+        escritura:['EdPlantillaSOfertaS', 'EditorOfertaS', 'EditorOferta', 'SupervisorTutor', 'Instructor', 'JefeContenido']        
+    }} 
+/>

@@ -63,7 +63,7 @@ const setup = ({ server }) => {
 
 
 //   })
-// }
+}
 
 module.exports = setup
 

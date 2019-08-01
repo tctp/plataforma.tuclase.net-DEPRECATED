@@ -24,19 +24,11 @@ export default class extends React.Component {
         });
     }
 
-    onDropdownSistemaSelectChange = (sys) => {        
-        this.setState({
-            sys
-        });
-        Router.push(`/${sys}/home_${this.props.lang}`);
-    }
-
-    componentDidMount() {
-        console.log("tctpSideBarNAv props", this.props);
+    componentDidMount() {        
         let itemActual = Router.router.pathname.substring(Router.router.pathname.lastIndexOf("/")).substr(1);
         let arrayRutas = Router.router.pathname.split('/').filter(Boolean);
         let sys = this.rootSubmenuKeys.filter(key => key == arrayRutas[0])
-        this.setState({ current: itemActual, openKeys: arrayRutas, sys: sys, loading:false});
+        this.setState({ current: itemActual, openKeys: arrayRutas, sys: this.props.sistemaActual, loading:false});
     }
 
     onOpenChange = (openKeys) => {        
@@ -46,20 +38,19 @@ export default class extends React.Component {
     }
 
     render() {        
-        let {openKeys, sys} = this.state;  
+        let {openKeys} = this.state;  
         let lang = this.props.lang;
-         
-        return (
-            <div style={{paddingLeft:'20px', width:'250px'}}>
-                {/* <Select defaultValue={sys.length > 0 ? sys : 'Selecciona...'} style={{ width: '100%' }} onChange={this.onDropdownSistemaSelectChange}>
-                    <Option value="tctp-lms-bs">Lms Brightspace</Option>
-                    <Option value="tctp-catalogo-bs">Catálogo Brightspace</Option>
-                    <Option value="tctp-comunidad-hh">Comunidad Humhub</Option>
-                </Select> */}
-                <br /><br />                 
-                <TctpMenuView lang={lang} sys={this.props.sistemaActual} open={openKeys} selected={[this.state.current]} change={this.onOpenChange} click={this.onMenuClick}/>
-            </div>
-        )
+        if(this.state.loading){
+            return(<div></div>)
+        } else{
+            return (
+                <div style={{paddingLeft:'20px', width:'250px'}}>
+                    <br /><br />                 
+                    <TctpMenuView lang={lang} sistemaActual={this.state.sys} open={openKeys} selected={[this.state.current]} change={this.onOpenChange} click={this.onMenuClick}/>
+                </div>
+            )
+        }
+
  
     }
 }

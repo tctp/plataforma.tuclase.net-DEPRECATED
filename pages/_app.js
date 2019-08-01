@@ -51,7 +51,7 @@ class SmartComponent extends React.Component {
     console.log("value", value);
     this.getIdioma(value.key);
     this.setState({ lang: value.key })
-    Router.push(`${Router.router.pathname.substring(0, Router.router.pathname.lastIndexOf("_"))}_${value.key}`)
+    Router.push(`/${value.key}/${Router.router.pathname.substring(0, Router.router.pathname.lastIndexOf("_"))}`)
   }
 
   onBreakpointChange = (broken) => {
@@ -151,10 +151,7 @@ class SmartComponent extends React.Component {
                 )}>                 
                     <Icon type="global" style={{ fontSize: '16px', color: '#666' }}/>
                 </Dropdown>
-            <p style={{fontSize:'11px', color:'#666'}}>Versión publicada: {v.version}</p>   
-           
-
-                     
+            <p style={{fontSize:'11px', color:'#666'}}>Versión publicada: {v.version}</p>                                   
         </Footer>
       </Layout>
     )

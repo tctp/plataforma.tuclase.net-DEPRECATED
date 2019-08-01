@@ -3,7 +3,7 @@ import TctpPreguntas from '../../../../../componentes/documentacion/tctpPregunta
 import { TctpTablaDocumentativa, Fila } from '../../../../../componentes/documentacion/tctpTablaDocumentativa'
 import TctpOuTipoTabla from '../../../../../componentes/documentacion/tctpOuTipoTabla'
 
-# Quizzes
+# Cuestionarios
 
 ## Conocer lo básico
 La herramienta cuestionario permite crear y administrar evaluaciones medidas por puntos. 
@@ -16,6 +16,9 @@ Este video tutorial te ayudara a entender como crear y configurar cuestionarios:
 - Crea y administra preguntas de cuestionarios desde la biblioteca de preguntas o la herramienta de cuestionarios y organiza los cuestionarios en categorías para facilitar la búsqueda de evaluaciones con contenido similar o relacionado. 
 - Usa la opción de <a href="https://www.youtube.com/watch?v=67pbYL9uDFI&list=PLxHabmZzFY6kAoPnl_PgFb9q-qCbRST3m&index=13" target="_blank">vista previa de cuestionario</a> para comprobar la exactitud del contenido y de la calificación antes de publicar un cuestionario. En una vista previa, puede responder las preguntas, ver pistas permitidas, enviar el cuestionario, autocalificar las respuestas, leer comentarios y ver resultados de informe. 
 - Cuando recibes cuestionarios completados de los estudiantes, puede ver las estadísticas de preguntas, como una distribución de calificaciones, promedio de calificaciones, estadísticas de preguntas y estadísticas de usuarios en la página Estadísticas.
+
+## Crear preguntas dentro de la biblioteca de Preguntas
+<TctpVideo video={'https://www.youtube.com/watch?v=ZS6sdu2A5AY'} /> 
 
 <TctpTablaDocumentativa header={['Tipos de preguntas','Descripción']} headerColor={'#FAFAFA'}>
     <Fila 
@@ -65,9 +68,9 @@ Este video tutorial te ayudara a entender como crear y configurar cuestionarios:
 </TctpTablaDocumentativa>
 
 <TctpPreguntas    
-    titulo={'¿Cómo se configuran cuestionarios para que sean autocalificables?'}
-    html={'Se debe habilitar la opción "Calificación automática" (ubicada en la pestaña "Evaluación" en la edición del cuestionario). De esta forma los usuarios pueden ver su puntuación inmediatamente despues de enviar su respuesta (intento). La puntuación que se muestra es sólo lo que el sistema puede autocalificar.'}
-    imgPath={'/static/imagenes/cuestionarios/autoevaluacion.png'}
+    titulo={'¿Cómo configurar la calificación de un cuestionario de selección multiple?'}
+    html={'<b>Todo o nada</b>: El usuario debe seleccionar todas las alternativas correctas para obtener el puntaje total (Modo estricto)<br/> <b>Bien menos mal</b>: El usuario debe acertar al menos el 50% de las alternativas correctas (por ejemplo 2 de 4, o 3 de 5) para obtener el puntaje completo (Modo por mayoría de aciertos) <br/> <b>Respuesta correctas</b>: El usuario obtiene un proporcional del puntaje de total de acuerdo a las alternativas acertadas. Si la pregunta está configurada con 10 puntos, tiene 5 opciones y 3 de ellas son correctas y he acertado 2, entonces tendré 6.6 puntos (2/3 * 10 puntos). (Modo proporcional)'}
+    imgPath={'/static/imagenes/cuestionarios/calificacion-seleccion-multiple.png'}
 />
 <TctpPreguntas    
     titulo={'¿Cómo se desactivan los cuestionarios?'}
@@ -129,11 +132,17 @@ Este tipo de evaluación puede ser útil si necesita tomar una decisión informa
 Revisa este video tutorial que describe como realizar esta configuración
 <TctpVideo video={'https://www.youtube.com/watch?v=C4RwWdl4zdQ'} />
 
+<TctpPreguntas    
+    titulo={'¿Cómo se configuran cuestionarios para que sean autocalificables?'}
+    html={'Se debe habilitar la opción "Calificación automática" (ubicada en la pestaña "Evaluación" en la edición del cuestionario). De esta forma los usuarios pueden ver su puntuación inmediatamente despues de enviar su respuesta (intento). La puntuación que se muestra es sólo lo que el sistema puede autocalificar.'}
+    imgPath={'/static/imagenes/cuestionarios/autoevaluacion.png'}
+/>
+
 ## Links de referencias
 
 * <a href="https://documentation.brightspace.com/es-mx/le/quizzes/instructor/creating_quizzes_intro.htm?tocpath=Instructores%7CEvaluar%20y%20calificar%20a%20los%20estudiantes%7CCrear%20cuestionarios%7C_____0" target="_blank">Creación de cuestionarios</a>
 * <a href="https://documentation.brightspace.com/es-mx/le/question_library/instructor/question_library_intro_1.htm?tocpath=Instructores%7CEvaluar%20y%20calificar%20a%20los%20estudiantes%7CCrear%20cuestionarios%7CBiblioteca%20de%20preguntas%7C_____0" target="_blank">Bibloteca de preguntas</a>
-* <a href="https://documentation.brightspace.com/es-mx/semester_start/-/instructor/attach_quiz_to_grade_item.htm?Highlight=cuestionarios" target="_blank">Ajuntar un cuestionario a un elemento de calificación</a>
+* <a href="https://documentation.brightspace.com/es-mx/semester_start/-/instructor/attach_quiz_to_grade_item.htm?Highlight=cuestionarios" target="_blank">Adjuntar un cuestionario a un elemento de calificación</a>
 
 
 ## Accesos por rol
