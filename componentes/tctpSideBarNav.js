@@ -32,6 +32,7 @@ export default class extends React.Component {
     }
 
     componentDidMount() {
+        console.log("tctpSideBarNAv props", this.props);
         let itemActual = Router.router.pathname.substring(Router.router.pathname.lastIndexOf("/")).substr(1);
         let arrayRutas = Router.router.pathname.split('/').filter(Boolean);
         let sys = this.rootSubmenuKeys.filter(key => key == arrayRutas[0])
@@ -50,13 +51,13 @@ export default class extends React.Component {
          
         return (
             <div style={{paddingLeft:'20px', width:'250px'}}>
-                <Select defaultValue={sys.length > 0 ? sys : 'Selecciona...'} style={{ width: '100%' }} onChange={this.onDropdownSistemaSelectChange}>
+                {/* <Select defaultValue={sys.length > 0 ? sys : 'Selecciona...'} style={{ width: '100%' }} onChange={this.onDropdownSistemaSelectChange}>
                     <Option value="tctp-lms-bs">Lms Brightspace</Option>
                     <Option value="tctp-catalogo-bs">Catálogo Brightspace</Option>
                     <Option value="tctp-comunidad-hh">Comunidad Humhub</Option>
-                </Select>
+                </Select> */}
                 <br /><br />                 
-                <TctpMenuView lang={lang} sys={sys} open={openKeys} selected={[this.state.current]} change={this.onOpenChange} click={this.onMenuClick}/>
+                <TctpMenuView lang={lang} sys={this.props.sistemaActual} open={openKeys} selected={[this.state.current]} change={this.onOpenChange} click={this.onMenuClick}/>
             </div>
         )
  

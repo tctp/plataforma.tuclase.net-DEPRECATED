@@ -22,6 +22,7 @@ class SmartComponent extends React.Component {
     mobile: false,
     loading: true,
     currentYear: (new Date()).getFullYear(),
+    sistemaActual:'tctp-lms-bs'
   }
 
   toggle = () => {
@@ -30,8 +31,16 @@ class SmartComponent extends React.Component {
     });
   }
 
+  onClickSistemaActual=(e)=>{
+    this.setState({sistemaActual: e.key})
+    Router.push(`/${this.state.lang}/${e.key}/home`)
+    console.log("e",e);
+  }
+
   componentDidMount() {
-    this.getIdioma(this.state.lang);
+    this.getIdioma(this.state.lang);    
+    let arrayRutas = Router.router.pathname.split('/').filter(Boolean);
+    this.setState({sistemaActual:arrayRutas[1]})    
   }
 
   getIdioma = (i) => {
@@ -75,23 +84,27 @@ class SmartComponent extends React.Component {
         </Head>
         <Header style={{ background: '#f0f2f5' }}>
           <Row gutter={12}>
-            <Col xs={7} sm={13} md={15} lg={17} xl={17} xxl={17}>
+            <Col xs={2} sm={2} md={2} lg={2} xl={2} xxl={2}>
               <img src="https://catalogo.tuclase.net/Theme/MainLogo?themeId=2&lastModified=636935293663870000" width="100" />
             </Col>
-            <Col xs={15} sm={10} md={8} lg={6} xl={6} xxl={6}>            
-            <Search id="tctpSearch" style={{width:'100%'}} placeholder="Buscar..."/> 
+            <Col xs={5} sm={11} md={13} lg={15} xl={15} xxl={15}>
+              <Menu onClick={this.onClickSistemaActual} selectedKeys={[this.state.sistemaActual]} mode="horizontal" style={{background:'none', lineHeight:'60px'}}>
+                <Menu.Item key="tctp-lms-bs">
+                <Icon type="cloud-server" />
+                  LMS Brightspace
+                </Menu.Item>
+                <Menu.Item key="tctp-catalogo-bs">
+                <Icon type="file-search" />
+                  Catálogo Brightspace
+                </Menu.Item>
+                <Menu.Item key="tctp-comunidad-hh">
+                <Icon type="team" />
+                  Comunidad Humhub
+                </Menu.Item>
+              </Menu>
             </Col>
-            <Col xs={2} sm={1} md={1} lg={1} xl={1} xxl={1}>              
-              <span style={{ float: 'right' }}>              
-                <Dropdown className="localeBtn" overlay={(
-                  <Menu onClick={this.handleIdiomaChange}>
-                    <Menu.Item key="es-cl">Español</Menu.Item>
-                    <Menu.Item key="pt-br">Portugues</Menu.Item>
-                  </Menu>
-                )}>                 
-                    <Icon type="global" style={{ fontSize: '16px', color: '#666' }}/>
-                </Dropdown>
-              </span>
+            <Col xs={17} sm={11} md={9} lg={7} xl={7} xxl={7}>            
+              <Search id="tctpSearch" style={{width:'100%'}} placeholder="Buscar..."/> 
             </Col>
           </Row>
         </Header>
@@ -107,7 +120,7 @@ class SmartComponent extends React.Component {
                 onBreakpoint={this.onBreakpointChange}
                 breakpoint="lg"
                 width={this.state.mobile ? '80%' : 250}>
-                    <TctpSideBarNav lang={this.state.lang} />
+                    <TctpSideBarNav lang={this.state.lang} sistemaActual={this.state.sistemaActual}/>
               </Sider>
           </div>       
           <Content style={{ padding: '24px 10px 0px 4%', lineHeight:'24px', background: '#fff', minHeight: 800, minWidth: 400 }}>
@@ -129,8 +142,19 @@ class SmartComponent extends React.Component {
           </Content>
         </Layout>
         <Footer style={{ textAlign: 'center', backgroundColor: '#FAFAFA' }}>
-            Tu clase, tu país ©{currentYear} <br/>
-            <p style={{fontSize:'11px', color:'#666'}}>Versión publicada: {v.version}</p>            
+            Tu clase, tu país ©{currentYear}&nbsp;&nbsp;
+            <Dropdown className="localeBtn" overlay={(
+                  <Menu onClick={this.handleIdiomaChange}>
+                    <Menu.Item key="es-cl">Español</Menu.Item>
+                    <Menu.Item key="pt-br">Portugues</Menu.Item>
+                  </Menu>
+                )}>                 
+                    <Icon type="global" style={{ fontSize: '16px', color: '#666' }}/>
+                </Dropdown>
+            <p style={{fontSize:'11px', color:'#666'}}>Versión publicada: {v.version}</p>   
+           
+
+                     
         </Footer>
       </Layout>
     )

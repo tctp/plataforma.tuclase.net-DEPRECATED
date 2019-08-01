@@ -1,0 +1,43 @@
+import TctpVideo from '../../../../../componentes/documentacion/tctpVideo'
+import TctpPreguntas from '../../../../../componentes/documentacion/tctpPreguntas'
+import TctpOuTipoTabla from '../../../../../componentes/documentacion/tctpOuTipoTabla'
+
+# Lista de control
+
+## Conocer lo básico
+
+Una lista de control (checklist), es una lista de acciones que requieren completarse y se utiliza para resaltar aspectos importantes del curso. 
+Los usuarios pueden usar esto como una guía visual para determinar sus necesidades para completar el curso.
+
+Este tutorial muestra cómo crear una lista de control.
+
+<TctpVideo video={'https://www.youtube.com/watch?v=eymmiUO0Zvo'} />
+
+<TctpPreguntas    
+    titulo={'¿Se puede condicionar una lista de control y desplegar un contenido en relación al tipo de respuesta?'}
+    html={'La lista de control es el único elemento que se puede condicionar al tipo de respuesta. Pero no permite al usuario seleccionar una única opción de un grupo de elecciones. Ya que funciona con una lógica de CheckList. Si este elemento se selecciona como "Requerido" en la tabla de contenidos, este se establecerá como completo cuando todas las casillas estén chequeadas.'}
+    imgPath={'/static/imagenes/lista-de-control/lista-de-control_categoria-elementos.png'}
+/>
+
+## Links de referencias
+* <a href="https://documentation.brightspace.com/es-mx/le/checklist/instructor/creating_checklist.htm?Highlight=lista%20de%20control" target="_blank">Crear una lista de control</a>
+
+
+## Accesos por rol
+
+<TctpOuTipoTabla 
+    organizacion={{
+        escritura:['AdminTuclase', 'AdminLocal'],
+    }} 
+    campus={{
+        escritura:['AdminTuclase', 'AdminLocal', 'AdminUnidadNegocio'],        
+    }} 
+    plantillas={{
+        lectura:['RevisorPlantilla', 'RevisorPlantillaS', 'RevPlantillaSOfertaS'], 
+        escritura:['EditorPlantilla', 'EditorPlantillaS', 'EdPlantillaSOfertaS', 'JefeContenido']
+    }} 
+    ofertas={{
+        lectura:['RevPlantillaSOfertaS', 'RevisorOferta', 'RevisorOfertaS', 'Tutor'], 
+        escritura:['EdPlantillaSOfertaS', 'EditorOfertaS', 'EditorOferta', 'SupervisorTutor', 'Instructor', 'JefeContenido']        
+    }} 
+/>

@@ -31,9 +31,42 @@ const setup = ({ server }) => {
       fs.writeFileSync('out/robots.txt', data);
     });
   })
-}
+
+
+//   glob("pages/es-cl/**", function (er, paths) {
+//     console.log("paths", paths);
+//     let sistemas = new Set();
+    
+//     let fileSystemRutas = {
+//       'idioma':'es-cl',
+//       'sistemas':[
+//           {
+//             nombre:undefined,
+//             roles:[]
+//           }
+//       ] 
+//     };
+
+//     paths.forEach(path => {      
+//       let levels = path.split("/");
+//       console.log("levels", levels);
+//       let file = levels.pop();  
+//       sistemas.add(levels[2]);          
+//     });
+
+//     sistemas.forEach((sistema)=>{
+
+//     })
+
+
+//     console.log("sistemas", sistemas);
+
+
+//   })
+// }
 
 module.exports = setup
+
 
 
 

@@ -1,0 +1,50 @@
+import TctpVideo from '../../../../../componentes/documentacion/tctpVideo'
+import TctpPreguntas from '../../../../../componentes/documentacion/tctpPreguntas'
+import TctpOuTipoTabla from '../../../../../componentes/documentacion/tctpOuTipoTabla'
+
+# Rúbricas
+
+## Conocer lo básico
+Las rúbricas permiten evaluar una actividad o elemento basándose en un conjunto de criterios predefinidos. 
+Se pueden crear rúbricas a nivel de la organización o de un campus y se pueden compartir con ofertas de cursos. 
+
+- Actividades de buzón
+- Actividades de debate
+- Elementos de calificación
+
+## Crear rúbricas holisticas
+Las rúbricas holisticas son de un solo criterio (de una dimensión) y se usan para evaluar el rendimiento general de los participantes en una actividad o elemento de acuerdo con niveles de rendimiento predefinidos.
+<TctpVideo video={'https://www.youtube.com/watch?v=lCp1kYhARCc'}/>
+
+## Crear rúbricas analíticas
+Las rúbricas analíticas son dos dimensiones, con niveles de rendimiento en columnas y criterios de evaluación en filas. 
+Permiten evaluar el rendimiento de los participantes de acuerdo con múltiples criterios mediante una sola rúbrica.
+<TctpVideo video={'https://www.youtube.com/watch?v=G5h2qiaN1o8'}/>
+
+## Asociar una rúbrica a una actividad
+Este video describe cómo agregar una rúbrica a una actividad existente en la herramienta Rúbricas.
+<TctpVideo video={'https://www.youtube.com/watch?v=x7qeDzHiawM'}/>
+
+
+## Links de referencias
+* <a href="https://documentation.brightspace.com/es-mx/semester_start/-/instructor/faq_rubrics.htm?tocpath=Introducci%C3%B3n%7CPreguntas%20frecuentes%20de%20los%20instructores%7CR%C3%BAbricas%7C_____0" target="_blank">Rúbricas</a>
+* <a href="https://documentation.brightspace.com/es-mx/le/rubrics/instructor/rubric_types.htm?tocpath=Introducci%C3%B3n%7CPreguntas%20frecuentes%20de%20los%20instructores%7CR%C3%BAbricas%7C_____1" target="_blank">Tipos de rúbricas</a>
+
+## Accesos por rol
+<TctpOuTipoTabla 
+    organizacion={{
+        escritura:['AdminTuclase', 'AdminLocal'],
+    }} 
+    campus={{
+        escritura:['AdminTuclase', 'AdminLocal', 'AdminUnidadNegocio'],        
+    }} 
+    plantillas={{
+        lectura:['RevisorPlantilla', 'RevisorPlantillaS', 'RevPlantillaSOfertaS'], 
+        escritura:['EditorPlantilla', 'EditorPlantillaS', 'EdPlantillaSOfertaS', 'JefeContenido']
+    }} 
+    ofertas={{
+        lectura:['RevPlantillaSOfertaS', 'RevisorOferta', 'RevisorOfertaS', 'Tutor'], 
+        escritura:['EdPlantillaSOfertaS', 'EditorOfertaS', 'EditorOferta', 'SupervisorTutor', 'Instructor', 'JefeContenido']        
+    }} 
+/>
+
