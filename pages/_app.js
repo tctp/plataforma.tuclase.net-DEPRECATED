@@ -7,7 +7,7 @@ import { addLocaleData } from 'react-intl';
 import TctpAnchor from '../componentes/tctpAnchor'
 import TctpCopy from '../componentes/tctpCopy'
 import { Affix, Layout, Row, Col, Icon, Input, Menu, Dropdown } from 'antd'
-import TctpSideBarNav from '../componentes/tctpSideBarNav'
+import TctpMenu from '../componentes/tctpMenu'
 import v from '../config/version.json'
 import './style.css'
 
@@ -22,7 +22,7 @@ class SmartComponent extends React.Component {
     mobile: false,
     loading: true,
     currentYear: (new Date()).getFullYear(),
-    sistemaActual:'tctp-lms-bs'
+    sistemaActual:undefined
   }
 
   toggle = () => {
@@ -70,7 +70,7 @@ class SmartComponent extends React.Component {
 
   render() {
     let {currentYear} = this.state;
-  
+    console.log("this,state.sistemaActual", this.state.sistemaActual);
     return (
       <Layout>
         <Head>
@@ -120,7 +120,7 @@ class SmartComponent extends React.Component {
                 onBreakpoint={this.onBreakpointChange}
                 breakpoint="lg"
                 width={this.state.mobile ? '80%' : 250}>
-                    <TctpSideBarNav lang={this.state.lang} sistemaActual={this.state.sistemaActual}/>
+                    <TctpMenu lang={this.state.lang} sistemaActual={this.state.sistemaActual}/>
               </Sider>
           </div>       
           <Content style={{ padding: '24px 10px 0px 4%', lineHeight:'24px', background: '#fff', minHeight: 800, minWidth: 400 }}>
