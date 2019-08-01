@@ -84,10 +84,10 @@ class SmartComponent extends React.Component {
         </Head>
         <Header style={{ background: '#f0f2f5' }}>
           <Row gutter={12}>
-            <Col xs={2} sm={2} md={2} lg={2} xl={2} xxl={2}>
+            <Col xs={0} sm={0} md={0} lg={2} xl={2} xxl={2}>
               <img src="https://catalogo.tuclase.net/Theme/MainLogo?themeId=2&lastModified=636935293663870000" width="100" />
             </Col>
-            <Col xs={5} sm={11} md={13} lg={15} xl={15} xxl={15}>
+            <Col xs={7} sm={13} md={15} lg={15} xl={15} xxl={15}>
               <Menu onClick={this.onClickSistemaActual} selectedKeys={[this.state.sistemaActual]} mode="horizontal" style={{background:'none', lineHeight:'60px'}}>
                 <Menu.Item key="tctp-lms-bs">
                 <Icon type="cloud-server" />
