@@ -41,7 +41,7 @@ export default class extends React.Component {
         if (sistemaActual == "tctp-lms-bs") {
             return <IntlProvider locale={lang} messages={mensajes[lang]}>                
                 <Menu mode="inline" openKeys={openKeys} selectedKeys={current} onOpenChange={this.onOpenChange} onClick={this.onMenuClick}>
-                    <SubMenu key="administrador" title={<FormattedMessage id="administrador" defaultMessage="Administrador" />} onTitleClick={() => Router.push(`/${lang}/${sistemaActual}/administrador/home`)} >
+                    {/* <SubMenu key="administrador" title={<FormattedMessage id="administrador" defaultMessage="Administrador" />} onTitleClick={() => Router.push(`/${lang}/${sistemaActual}/administrador/home`)} >
                         <SubMenu key="gestion-usuarios" title={<FormattedMessage id="gestionUsuarios" defaultMessage="Gestion de usuarios" />} className="menuTercerNivel">
                             <Menu.Item key={`about`}><Link href={`/${lang}/${sistemaActual}/administrador/gestion-usuarios/about`}><a><FormattedMessage id="about" defaultMessage="Quienes somos" /></a></Link></Menu.Item>
                             <Menu.Item key={`contacto`}><Link href={`/${lang}/${sistemaActual}/administrador/gestion-usuarios/contacto`}><a><FormattedMessage id="contacto" defaultMessage="Contacto" /></a></Link></Menu.Item>
@@ -59,7 +59,7 @@ export default class extends React.Component {
                     <SubMenu key="supervisorTutor" title={<FormattedMessage id="supervisorTutor" defaultMessage="Supervisor Tutor" />} onTitleClick={() => Router.push(`/${lang}/${sistemaActual}/supervisorTutor/home`)}>
                         <Menu.Item key={`evaluacion`}><Link href={`/${lang}/${sistemaActual}/supervisorTutor/evaluacion`}><a>Evaluacion</a></Link></Menu.Item>
                         <Menu.Item key={`tutoriales`}><Link href={`/${lang}/${sistemaActual}/supervisorTutor/tutoriales`}><a>Blog</a></Link></Menu.Item>
-                    </SubMenu>
+                    </SubMenu> */}
                     <SubMenu key="editor" title={<FormattedMessage id="editor" defaultMessage="Editor de cursos" />} onTitleClick={() => Router.push(`/${lang}/${sistemaActual}/editor/home`)}>
                         <Menu.Item key={`herramientas-de-comunicacion`}><Link href={`/${lang}/${sistemaActual}/editor/herramientas-de-comunicacion`}><a>Herramientas de comunicación</a></Link></Menu.Item>
                         <SubMenu key="evaluacion" title={<FormattedMessage id="evaluacion" defaultMessage="Evaluación" />} className="menuTercerNivel">
@@ -77,14 +77,14 @@ export default class extends React.Component {
                             <Menu.Item key={`agentes-inteligentes`}><Link href={`/${lang}/${sistemaActual}/editor/comunicacion/agentes-inteligentes`}><a><FormattedMessage id="agentes-inteligentes" defaultMessage="Agentes inteligentes" /></a></Link></Menu.Item>
                             <Menu.Item key={`aulas-virtuales`}><Link href={`/${lang}/${sistemaActual}/editor/comunicacion/aulas-virtuales`}><a><FormattedMessage id="aulas-virtuales" defaultMessage="Aulas virtuales" /></a></Link></Menu.Item>
                             <Menu.Item key={`retroalimentacion`}><Link href={`/${lang}/${sistemaActual}/editor/comunicacion/retroalimentacion`}><a><FormattedMessage id="retroalimentacion" defaultMessage="Retroalimentación" /></a></Link></Menu.Item>
+                            <Menu.Item key={`video-tareas`}><Link href={`/${lang}/${sistemaActual}/editor/comunicacion/video-tareas`}><a><FormattedMessage id="video-tareas" defaultMessage="Video tareas" /></a></Link></Menu.Item>
                         </SubMenu>
                     </SubMenu>
-                    <SubMenu key="disenador" title={<FormattedMessage id="disenador" defaultMessage="Diseñador Gráfico" />} onTitleClick={() => Router.push(`/${lang}/${sistemaActual}/disenador-grafico/home`)}>
-                        {/* no hay contenido por el monmento */}
+                    {/* <SubMenu key="disenador" title={<FormattedMessage id="disenador" defaultMessage="Diseñador Gráfico" />} onTitleClick={() => Router.push(`/${lang}/${sistemaActual}/disenador-grafico/home`)}>                        
                     </SubMenu>
                     <SubMenu key="desarrollador" title={<FormattedMessage id="desarrollador" defaultMessage="Desarrollador SW" />} onTitleClick={() => Router.push(`/${lang}/${sistemaActual}/desarrollador/home`)}>
                         <Menu.Item key={`api`}><Link href={`/${lang}/${sistemaActual}/desarrollador/api`}><a>Api</a></Link></Menu.Item>
-                    </SubMenu>
+                    </SubMenu> */}
                 </Menu>
             </IntlProvider>
         } else if (sistemaActual == "tctp-catalogo-bs") {

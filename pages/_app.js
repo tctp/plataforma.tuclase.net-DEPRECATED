@@ -2,12 +2,14 @@
 import React from 'react'
 import Router from 'next/router'
 import Head from 'next/head'
+import Link from 'next/link'
 import App, { Container } from 'next/app'
 import { Layout, Row, Col, Icon, Input, Menu, Dropdown } from 'antd'
 import { addLocaleData } from 'react-intl';
 import TctpAnchor from '../componentes/tctpAnchor'
 import TctpCopy from '../componentes/tctpCopy'
 import TctpMenu from '../componentes/tctpMenu'
+import TctpMenuSuperior from '../componentes/tctpMenuSuperior'
 import v from '../config/version.json'
 import './style.css'
 
@@ -26,13 +28,13 @@ class SmartComponent extends React.Component {
 
   componentDidMount() {
     this.getIdioma(this.state.lang);
-    let arrayRutas = Router.router.pathname.split('/').filter(Boolean);
+    let arrayRutas = Router.router.pathname.split('/').filter(Boolean);    
     if (arrayRutas.length == 0) {
       this.setState({ collapsed: true });
     } else {
       this.setState({ sistemaActual: arrayRutas[1], collapsed: false })
     }
-  }  
+  }
 
   toggle = () => {
     this.setState({
@@ -40,18 +42,22 @@ class SmartComponent extends React.Component {
     });
   }
 
+  setHome=()=>{
+    Router.push(`/index`);
+    this.setState({ sistemaActual: undefined, collapsed: false });
+  }
+
   // Cuando se hace clic en el menu superior
-  onClickMenuSuperiorSistemas = (e) => {
-    this.setState({ sistemaActual: e.key, collapsed: false })
-    Router.push(`/${this.state.lang}/${e.key}/home`)
+  onClickMenuSuperiorSistemas = (sistema) => {
+    this.setState({ sistemaActual: sistema, collapsed: false });
+    Router.push(`/${this.state.lang}/${sistema}/home`);
   }
 
   getIdioma = (i) => {
     addLocaleData(require(`react-intl/locale-data/${i.slice(0, 2)}`)); //carga dinamica de libreria para idioma        
   }
 
-  onClickDropdownIdiomas = (value) => {
-    console.log("value", value);
+  onClickDropdownIdiomas = (value) => {    
     this.getIdioma(value.key);
     this.setState({ lang: value.key })
     Router.push(`/${value.key}/${Router.router.pathname.substring(0, Router.router.pathname.lastIndexOf("_"))}`)
@@ -73,7 +79,7 @@ class SmartComponent extends React.Component {
   }
 
   render() {
-    let { currentYear, sistemaActual, collapsed, lang, mobile } = this.state;    
+    let { currentYear, sistemaActual, collapsed, lang, mobile } = this.state;        
     return (
       <Layout>
         <Head>
@@ -87,24 +93,11 @@ class SmartComponent extends React.Component {
         </Head>
         <Header style={{ background: '#f0f2f5' }}>
           <Row gutter={12}>
-            <Col xs={0} sm={0} md={0} lg={2} xl={2} xxl={2}>
-              <img src="https://catalogo.tuclase.net/Theme/MainLogo?themeId=2&lastModified=636935293663870000" width="100" />
+            <Col xs={0} sm={0} md={0} lg={2} xl={2} xxl={2}>              
+                <a onClick={this.setHome}><img src="https://catalogo.tuclase.net/Theme/MainLogo?themeId=2&lastModified=636935293663870000" width="100" /></a>              
             </Col>
             <Col xs={7} sm={13} md={15} lg={15} xl={15} xxl={15}>
-              <Menu onClick={this.onClickMenuSuperiorSistemas} selectedKeys={[sistemaActual]} mode="horizontal" style={{ background: 'none', lineHeight: '60px' }}>
-                <Menu.Item key="tctp-lms-bs">
-                  <Icon type="cloud-server" />
-                  LMS Brightspace
-                </Menu.Item>
-                <Menu.Item key="tctp-catalogo-bs">
-                  <Icon type="file-search" />
-                  Catálogo Brightspace
-                </Menu.Item>
-                <Menu.Item key="tctp-comunidad-hh">
-                  <Icon type="team" />
-                  Comunidad Humhub
-                </Menu.Item>
-              </Menu>
+              <TctpMenuSuperior lang={lang} sistemaActual={sistemaActual} callback={this.onClickMenuSuperiorSistemas.bind(this)} />
             </Col>
             <Col xs={17} sm={11} md={9} lg={7} xl={7} xxl={7}>
               <Search id="tctpSearch" style={{ width: '100%' }} placeholder="Buscar..." />
@@ -116,7 +109,7 @@ class SmartComponent extends React.Component {
             <Sider
               trigger={null}
               collapsible
-              collapsed={collapsed}
+              collapsed={sistemaActual?collapsed:true}
               theme={'light'}
               style={{ paddingTop: '24px' }}
               collapsedWidth={0}
@@ -127,20 +120,33 @@ class SmartComponent extends React.Component {
               <TctpMenu lang={lang} sistemaActual={sistemaActual} />
             </Sider>
           </div>
-          <Content style={{ padding: '24px 10px 0px 4%', lineHeight: '24px', background: '#fff', minHeight: 800, minWidth: 400 }}>
-            <Icon className="trigger" type={collapsed ? 'menu-unfold' : 'menu-fold'} onClick={this.toggle} />
-            <Row gutter={48} type="flex" justify="center" align="top">
-              <Col xs={24} sm={24} md={16} lg={19} xl={19} xxl={19}>
-                {/* Componente: icono copy to clipboard */}
-                <TctpCopy />
-                {React.cloneElement(this.props.children, { lang: lang })}
-              </Col>
-              <Col xs={0} sm={0} md={8} lg={5} xl={5} xxl={5}>
-                {/* Componente: menu contextual al contenido del documento */}
-                <TctpAnchor />
-              </Col>
-            </Row>
-            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+          <Content style={{ padding: '24px 10px 0px 0px', lineHeight: '24px', background: '#fff', minHeight: 800, minWidth: 400 }}>
+            {
+              sistemaActual ?               
+              <div style={{ paddingLeft: '4%'}}>
+                <Icon className="trigger" type={collapsed ? 'menu-unfold' : 'menu-fold'} onClick={this.toggle} />                 
+                  <Row gutter={48} type="flex" justify="center" align="top">
+                    <Col xs={24} sm={24} md={16} lg={19} xl={19} xxl={19}>
+                      {/* Componente: icono copy to clipboard */}
+                      <TctpCopy />
+                      {React.cloneElement(this.props.children, { lang: lang })}
+                    </Col>
+                    <Col xs={0} sm={0} md={8} lg={5} xl={5} xxl={5}>
+                      {/* Componente: menu contextual al contenido del documento */}
+                      <TctpAnchor />
+                    </Col>
+                  </Row>   
+                </div>                
+                : 
+              <div>
+                  <Row type="flex" justify="center" align="top">
+                    <Col span={24}>
+                      {React.cloneElement(this.props.children, { lang: lang })}
+                    </Col>
+                  </Row>
+              </div>                             
+            }
+            <div style={{height:'400px'}}></div>            
           </Content>
         </Layout>
         <Footer style={{ textAlign: 'center', backgroundColor: '#FAFAFA' }}>
