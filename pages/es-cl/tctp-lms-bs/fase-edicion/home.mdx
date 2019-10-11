@@ -1,0 +1,28 @@
+import TctpOuTipoTabla from '../../../../componentes/documentacion/tctpOuTipoTabla'
+
+# Fase de edición
+A esta etapa se le denomina fase de edición, por que es cuando comienza la construcción del curso en su etapa inicial, en esta etapa se construye y perfeccionan los cursos hasta ser liberada para una versión productiva.
+Las versiones productivas de los cursos las llamaremos Ofertas y la unidad inicial de un curso la denominaremos plantilla.
+
+Una plantilla es la unidad de organización donde se almacena la versión maestra de un curso y sirve además para llevar un control de versión, ya que, desde aqui se generan los cursos que pasarán a producción.
+
+En esta fase explicaremos también las herramientas más utilizadas para construir cursos y como se configuran.
+
+Los roles participantes en esta estapa son:
+
+<TctpOuTipoTabla 
+    organizacion={{        
+    }} 
+    campus={{      
+    }} 
+    plantillas={{
+        lectura:['RevisorPlantilla', 'RevisorPlantillaS', 'RevPlantillaSOfertaS'], 
+        escritura:['EditorPlantilla', 'EditorPlantillaS', 'EdPlantillaSOfertaS', 'JefeContenido']
+    }} 
+    ofertas={{
+        lectura:['RevPlantillaSOfertaS', 'RevisorOferta', 'RevisorOfertaS'], 
+        escritura:['EdPlantillaSOfertaS', 'EditorOfertaS', 'EditorOferta', 'JefeContenido']        
+    }} 
+/>
+
+

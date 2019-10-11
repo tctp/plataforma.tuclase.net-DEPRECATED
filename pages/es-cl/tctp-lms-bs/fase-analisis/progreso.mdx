@@ -1,0 +1,83 @@
+import TctpVideo from '../../../../componentes/documentacion/tctpVideo'
+import TctpOuTipoTabla from '../../../../componentes/documentacion/tctpOuTipoTabla'
+import TctpPreguntas from '../../../../componentes/documentacion/tctpPreguntas'
+
+# Progreso del curso
+
+## Conocer lo básico
+La herramienta progreso de la clase ayuda a hacer un seguimiento del progreso de sus alumnos en un curso; para ello, se mide el avance de distintos indicadores de progreso.
+Los informes de progreso están disponibles para los siguientes indicadores de progreso: 
+
+- Resumen
+- Calificaciones
+- Objetivos
+- Contenidos
+- Debates
+- Buzones
+- Cuestionarios
+- Lista de control
+- Encuestas
+- Acceso al curso
+- Historial de inicio de sesión.
+
+## Como ver los resultados desde el progreso
+<TctpVideo video={'https://www.youtube.com/watch?v=OqRSABnH8Uw'} />
+
+<TctpPreguntas    
+    titulo={'¿Qué significa el indicador de temas visitados en progreso de contenidos?'}
+    html={'Es un indicador que cuantifica un tema visitado y es independiente a la completitud de la actividad (Cuantifica solo la primera vez que se visita el tema)'}    
+    imgPath={'/static/imagenes/progreso/temas-visitados.png'}
+/>
+<TctpPreguntas    
+    titulo={'¿Qué significa el indicador cantidad total de visitas en progreso de contenidos?'}
+    html={'Este indicador cuantifica cada vez que se visita un contenido y contabiliza incluso si el contenido ya fue visitado.'}    
+    imgPath={'/static/imagenes/progreso/cantidad-total-visitas.png'}
+/>
+<TctpPreguntas    
+    titulo={'¿Qué significa el indicador completado?'}
+    html={'Es un indicador relacionado a la completitud de una actividad, considerando que cada actividad tiene una condición específica de completitud. <br/>Por ejemplo: <ol><li>Un cuestionario para ser completado necesita contestar las preguntas y ser enviado</li><li>Un tema de contenido para que se cuentifique como completado solamente se debe visitar</li><li>Un debate se completa cuando se inicia realiza un post</li><li>Un buzón cuando se sube un archivo y se realiza un submit</li> </ol>'}    
+    imgPath={'/static/imagenes/progreso/contenido-completado.png'}
+/>
+
+## Como personalizar los indicadores del progreso del curso 
+Este tutorial muestra cómo personalizar el progreso de la clase para mostrar indicadores relevantes para su curso
+
+<TctpVideo video={'https://www.youtube.com/watch?v=AW_cL-F-dKM'} />
+
+
+<TctpPreguntas    
+    titulo={'¿Cómo tener contenidos en la tabla de contenidos que no generan progreso?'}
+    html={'Para que un tema de contenido sea cuantificable en el progreso debe tener la indicación de <b>Requerido</b>, esta opción puede ser manual o automática. Cada vez que se crea un nuevo tema de contenido, se asigna como "requerido: automático" por defecto'}    
+    imgPath={'/static/imagenes/progreso/contenido-requerido.png'}
+/>
+
+## Cómo utilizar y modificar el progreso del usuario
+Este tutorial muestra cómo personalizar el informe de progreso del usuario para satisfacer sus necesidades.
+<TctpVideo video={'https://www.youtube.com/watch?v=ju_TKT5WgTM'} />
+
+
+## Links de referencias
+
+* <a href="https://documentation.brightspace.com/es-mx/le/user_progress/learner/user_progress_intro.htm?tocpath=Estudiantes%7CVer%20logros%20y%20progreso%20del%20curso%7CVer%20el%20progreso%20del%20curso%20con%20la%20herramienta%20Progreso%20de%20la%20clase%7C_____0" target="_blank">Ver el progreso del curso con la herramienta Progreso de la clase</a>
+* <a href="https://documentation.brightspace.com/es-mx/le/user_progress/instructor/class_progress_overview.htm?Highlight=progreso" target="_blank">Realizar un seguimiento del progreso del curso</a>
+
+
+## Accesos por rol
+
+<TctpOuTipoTabla 
+    organizacion={{
+        lectura:['AdminTuclase'],
+    }} 
+    campus={{
+        lectura:['AdminTuclase'],         
+    }} 
+    plantillas={{              
+        lectura:['AdminTuclase', 'RevisorPlantilla', 'RevisorPlantillaS', 'RevPlantillaSOfertaS', 'EdPlantillaSOfertaS', 'JefeContenido', 'EditorPlantillaS', 'EditorPlantilla'],         
+    }} 
+    ofertas={{
+        lectura:['RevPlantillaSOfertaS', 'RevisorOferta', 'RevisorOfertaS', 'Aprendiz', 'EdPlantillaSOfertaS', 'EditorOfertaS', 'EditorOferta', 'SupervisorTutor', 'Instructor', 'JefeContenido', 'Tutor'],          
+    }} 
+/>
+
+
+ 
