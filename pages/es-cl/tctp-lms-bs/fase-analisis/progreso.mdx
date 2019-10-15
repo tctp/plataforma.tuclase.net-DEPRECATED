@@ -45,15 +45,33 @@ Este tutorial muestra cómo personalizar el progreso de la clase para mostrar in
 <TctpVideo video={'https://www.youtube.com/watch?v=AW_cL-F-dKM'} />
 
 
+## Cómo utilizar y modificar el progreso del usuario
+Este tutorial muestra cómo personalizar el informe de progreso del usuario para satisfacer sus necesidades.
+<TctpVideo video={'https://www.youtube.com/watch?v=ju_TKT5WgTM'} />
+
+
+## Seguimiento de temas de contenidos
+Verifique el progreso de los alumnos a través de los temas de contenido de su curso utilizando el seguimiento de finalización. 
+Este tutorial proporciona una descripción general del seguimiento de finalización para temas de contenido.
+<TctpVideo video={'https://www.youtube.com/watch?v=TZdQiCZpUqc'} />
+
 <TctpPreguntas    
     titulo={'¿Cómo tener contenidos en la tabla de contenidos que no generan progreso?'}
     html={'Para que un tema de contenido sea cuantificable en el progreso debe tener la indicación de <b>Requerido</b>, esta opción puede ser manual o automática. Cada vez que se crea un nuevo tema de contenido, se asigna como "requerido: automático" por defecto'}    
     imgPath={'/static/imagenes/progreso/contenido-requerido.png'}
 />
 
-## Cómo utilizar y modificar el progreso del usuario
-Este tutorial muestra cómo personalizar el informe de progreso del usuario para satisfacer sus necesidades.
-<TctpVideo video={'https://www.youtube.com/watch?v=ju_TKT5WgTM'} />
+<TctpPreguntas    
+    titulo={'¿Por qué aparece un check de contenido visitado pero dice nunca visitado?'}
+    html={'Este error es muy común y se produce por que los alumnos acceden a los cuestionarios sin visitar el tema de contenido cuantificable. Recordemos que el progreso de contenidos cuantifica un tema visitado y un tema almacena un recurso o actividad del curso. Si los aprendices acceden desde un link directo al recurso o un caso muy común es que accedan desde el progreso sin visitar el tema de contenido, se producirá este problema. '}    
+    imgPath={'/static/imagenes/progreso/tema-no-visitado.png'}
+/>
+
+<TctpPreguntas    
+    titulo={'¿Por qué no puedo ver el progreso de los alumnos cuando el curso finalizó?'}
+    html={'El progreso del usuario solo es visible mientras el curso este disponible para el usuario, como excepción nuestro rol "Aprendiz", tiene permiso para ver cursos pasados, por lo cual, aún cuando el curso esta finalizado podrá acceder. Pero no así el rol AprendizBasico, el cual, es mas restringido.'}    
+    imgPath={'/static/imagenes/progreso/rol-aprendiz-cursos-pasados.png'}
+/>
 
 
 ## Links de referencias
@@ -65,14 +83,11 @@ Este tutorial muestra cómo personalizar el informe de progreso del usuario para
 ## Accesos por rol
 
 <TctpOuTipoTabla 
-    organizacion={{
-        lectura:['AdminTuclase'],
+    organizacion={{        
     }} 
-    campus={{
-        lectura:['AdminTuclase'],         
+    campus={{                
     }} 
-    plantillas={{              
-        lectura:['AdminTuclase', 'RevisorPlantilla', 'RevisorPlantillaS', 'RevPlantillaSOfertaS', 'EdPlantillaSOfertaS', 'JefeContenido', 'EditorPlantillaS', 'EditorPlantilla'],         
+    plantillas={{                      
     }} 
     ofertas={{
         lectura:['RevPlantillaSOfertaS', 'RevisorOferta', 'RevisorOfertaS', 'Aprendiz', 'EdPlantillaSOfertaS', 'EditorOfertaS', 'EditorOferta', 'SupervisorTutor', 'Instructor', 'JefeContenido', 'Tutor'],          

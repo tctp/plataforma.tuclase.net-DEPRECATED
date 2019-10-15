@@ -1,6 +1,6 @@
 import { Collapse  } from 'antd';
 import Router from 'next/router'
-const Panel = Collapse.Panel;
+const { Panel } = Collapse;
 
 export default class extends React.Component {
 
@@ -50,7 +50,7 @@ export default class extends React.Component {
               this.props.imgPath ? <img src={this.props.imgPath} style={{width:'100%', maxWidth:'900px'}}/> : <span></span>
             }
           </Panel>
-        </Collapse>
+        </Collapse>        
       </div>
     )
   }

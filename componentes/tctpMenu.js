@@ -8,12 +8,12 @@ import mensajes from '../config/mensajes';
 const SubMenu = Menu.SubMenu;
 
 // example header component
-export default class extends React.Component {
+export default class extends React.Component {    
 
     state = {
         openKeys: [],
         current: [],        
-        loading: true
+        loading: true,        
     }
 
     onMenuClick = (e) => {             
@@ -27,7 +27,7 @@ export default class extends React.Component {
         Router.push(`/${lang}/${sistemaActual}/${e.key}/home`)
     }
 
-    componentDidMount() {        
+    componentDidMount() {            
         let itemActual = Router.router.pathname.substring(Router.router.pathname.lastIndexOf("/")).substr(1);
         let arrayRutas = Router.router.pathname.split('/').filter(Boolean);      
         this.setState({ current: [itemActual], openKeys: arrayRutas});
@@ -39,7 +39,8 @@ export default class extends React.Component {
 
     render() {
         let { openKeys, current } = this.state;
-        let { sistemaActual, lang } = this.props;                      
+        let { sistemaActual, lang } = this.props;  
+        console.log("this.state", this.state);                    
         if (sistemaActual == "tctp-lms-bs") {
             return <IntlProvider locale={lang} messages={mensajes[lang]}>                
                 <Menu mode="inline" openKeys={openKeys} selectedKeys={current} onOpenChange={this.onOpenChange} onClick={this.onMenuClick}>
@@ -64,7 +65,10 @@ export default class extends React.Component {
                         </SubMenu>
                     </SubMenu>
                     <SubMenu key="fase-despliegue" title={<FormattedMessage id="fase-despliegue" defaultMessage="Fase de despliegue" />} onTitleClick={this.onTitleSubMenuClick}>                                                
-                        <Menu.Item key={`curso-tutoreado`}><Link href={`/${lang}/${sistemaActual}/fase-despliegue/curso-tutoreado`}><a><FormattedMessage id="curso-tutoreado" defaultMessage="Curso " /></a></Link></Menu.Item>
+                        <Menu.Item key={`curso-tutoreado`}><Link href={`/${lang}/${sistemaActual}/fase-despliegue/curso-tutoreado`}><a><FormattedMessage id="curso-tutoreado" defaultMessage="Curso tutoreado" /></a></Link></Menu.Item>
+                        <Menu.Item key={`curso-autoinstruccional`}><Link href={`/${lang}/${sistemaActual}/fase-despliegue/curso-autoinstruccional`}><a><FormattedMessage id="curso-autoinstruccional" defaultMessage="Curso autoinstruccional" /></a></Link></Menu.Item>
+                        <Menu.Item key={`curso-instructor`}><Link href={`/${lang}/${sistemaActual}/fase-despliegue/curso-instructor`}><a><FormattedMessage id="curso-instructor" defaultMessage="Curso con instructor" /></a></Link></Menu.Item>
+                        <Menu.Item key={`curso-autoinstruccional-sin-clase`}><Link href={`/${lang}/${sistemaActual}/fase-despliegue/curso-autoinstruccional-sin-clase`}><a><FormattedMessage id="curso-autoinstruccional-sin-clase" defaultMessage="Curso autoinstruccional sin clase" /></a></Link></Menu.Item>
                     </SubMenu>
                     <SubMenu key="fase-ejecucion" title={<FormattedMessage id="fase-ejecucion" defaultMessage="Fase de ejecución" />} onTitleClick={this.onTitleSubMenuClick}>                                                
                         <Menu.Item key={`informe-cierre`}><Link href={`/${lang}/${sistemaActual}/fase-ejecucion/informe-cierre`}><a><FormattedMessage id="informe-cierre" defaultMessage="Informe de cierre" /></a></Link></Menu.Item>
@@ -77,15 +81,8 @@ export default class extends React.Component {
         } else if (sistemaActual == "tctp-catalogo-bs") {
             return <IntlProvider locale={lang} messages={mensajes[lang]}>
                 <Menu mode="inline" openKeys={openKeys} selectedKeys={current} onOpenChange={this.onOpenChange} onClick={this.onMenuClick}>
-                    <SubMenu key="administrador" title={<FormattedMessage id="administrador" defaultMessage="Administrador" />} onTitleClick={() => Router.push(`/${lang}/${sistemaActual}/administrador/home`)}>
-                        <Menu.Item key="7">Home</Menu.Item>
-                        <Menu.Item key="8">About</Menu.Item>
-                        <Menu.Item key="9">Contacto</Menu.Item>
-                    </SubMenu>
-                    <SubMenu key="organizador" title={<FormattedMessage id="organizador" defaultMessage="Organizador" />} onTitleClick={() => Router.push(`/${lang}/${sistemaActual}/organizador/home`)}>
-                        <Menu.Item key="7">Home</Menu.Item>
-                        <Menu.Item key="8">About</Menu.Item>
-                        <Menu.Item key="9">Contacto</Menu.Item>
+                    <SubMenu key="administrador" title={<FormattedMessage id="administrador" defaultMessage="Administrador" />}>
+                        <Menu.Item key={`catalogo-de-cursos`}><Link href={`/${lang}/${sistemaActual}/administrador/catalogo-de-cursos`}><a><FormattedMessage id="catalogo-de-cursos" defaultMessage="Catálogo de cursos" /></a></Link></Menu.Item>
                     </SubMenu>
                 </Menu>
             </IntlProvider>
