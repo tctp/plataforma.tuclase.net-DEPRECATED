@@ -89,10 +89,8 @@ export default class extends React.Component {
         } else if (sistemaActual == "tctp-comunidad-hh") {
             return <IntlProvider locale={lang} messages={mensajes[lang]}>
                 <Menu mode="inline" openKeys={openKeys} selectedKeys={current} onOpenChange={this.onOpenChange} onClick={this.onMenuClick}>
-                    <SubMenu key="administrador" title={<FormattedMessage id="administrador" defaultMessage="Administrador" />} onTitleClick={() => Router.push(`/${lang}/${sistemaActual}/administrador/home`)}>
-                        <Menu.Item key="7">Home</Menu.Item>
-                        <Menu.Item key="8">About</Menu.Item>
-                        <Menu.Item key="9">Contacto</Menu.Item>
+                    <SubMenu key="administrador" title={<FormattedMessage id="administrador" defaultMessage="Administrador" />}>
+                        <Menu.Item key={`comunidad-tuclase`}><Link href={`/${lang}/${sistemaActual}/administrador/comunidad-tuclase`}><a><FormattedMessage id="comunidad-tuclase" defaultMessage="Comunidad Tu clase" /></a></Link></Menu.Item>
                     </SubMenu>
                 </Menu>
             </IntlProvider>
