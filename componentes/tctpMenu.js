@@ -90,7 +90,7 @@ export default class extends React.Component {
             return <IntlProvider locale={lang} messages={mensajes[lang]}>
                 <Menu mode="inline" openKeys={openKeys} selectedKeys={current} onOpenChange={this.onOpenChange} onClick={this.onMenuClick}>
                     <SubMenu key="administrador" title={<FormattedMessage id="administrador" defaultMessage="Administrador" />}>
-                        <Menu.Item key={`comunidad-tuclase`}><Link href={`/${lang}/${sistemaActual}/administrador/comunidad-tuclase`}><a><FormattedMessage id="comunidad-tuclase" defaultMessage="Comunidad Tu clase" /></a></Link></Menu.Item>
+                        <Menu.Item key={`comunidad-humhub`}><Link href={`/${lang}/${sistemaActual}/administrador/comunidad-humhub`}><a><FormattedMessage id="comunidad-humhub" defaultMessage="Comunidad HumHub" /></a></Link></Menu.Item>
                     </SubMenu>
                 </Menu>
             </IntlProvider>
