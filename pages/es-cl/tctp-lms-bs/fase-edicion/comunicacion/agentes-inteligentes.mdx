@@ -33,19 +33,17 @@ Este tutorial muestra cómo ver y editar la programación de un agente inteligen
     html={'Puede utilizar las siguientes cadenas de reemplazo en los campos de direcciones <b>Para</b>, <b>Cc</b>y <b>Cco</b> a fin de enviar el correo electrónico de agente a destinatarios específicos: <ul><li><b>{InitiatingUser}</b>: el usuario que lleva a cabo las acciones o condiciones necesarias para coincidir con los criterios del agente inteligente.</li> <li><b>{InitiatingUserAuditors}</b>: los auditores del usuario que llevan a cabo las acciones necesarias para coincidir con los criterios del agente inteligente.</li></ul>'}    
 />
 
-
-
 <TctpPreguntas    
     titulo={'¿Qué cadenas de reemplazo (string replacement) puedo utilizar en el asunto y el mensaje?'}
     html={'Las siguientes son cadenas de reemplazo que puede utilizar en la línea del asunto y en el mensaje del correo electrónico. <ul><li><b>{OrgName}<b>: el nombre de la organización.</li><li><b>{OrgUnitCode}<b>: el código para la unidad de organización.</li><li><b>{OrgUnitName}<b>: el nombre de la unidad de organización.</li><li><b>{OrgUnitStartDate}<b>: la fecha de inicio especificada para la unidad de organización.</li><li><b>{OrgUnitEndDate}<b>: la fecha final especificada para la unidad de organización.</li><li><b>{OrgUnitId}<b>: la ID de la unidad de organización.</li><li><b>{InitiatingUserFirstName}<b>: el nombre del usuario inicial.</li><li><b>{InitiatingUserLastName}<b>: el apellido del usuario inicial.</li><li><b>{InitiatingUserUserName}<b>: el nombre de usuario del usuario inicial.</li><li><b>{InitiatingUserOrgDefinedId}<b>: la ID definida por organización del usuario inicial.</li><li><b>{LoginPath}<b>: la dirección de la ruta de inicio de sesión para el sitio.</li><li><b>{LastCourseAccessDate}<b>: la última fecha de acceso del usuario inicial al curso.</li><li><b>{LastLoginDate}<b>: la última fecha de inicio de sesión del usuario inicial.</li></ul>'}
     imgPath={'/static/imagenes/agentes-inteligentes/asunto-mensaje.png'}
 />
 
-
-
-
-
-
+<TctpPreguntas    
+    titulo={'¿Cómo puedo ver y exportar el historial de agentes inteligentes'}
+    html={'Para obtener un reporte de los agentes inteligentes ejecutados debemos ir al panel de agentes y hacer clic en "Más acciones / Exportar historial de agente", desde aqui accedemos al historial y podremos exportar el historial por rango de fechas.'}
+    imgPath={['/static/imagenes/agentes-inteligentes/exportar-agentes-inteligentes.png', '/static/imagenes/agentes-inteligentes/exportacion-seleccion.png']}
+/>
 
 ## Links de referencias
 
@@ -72,3 +70,4 @@ Este tutorial muestra cómo ver y editar la programación de un agente inteligen
         escritura:['EdPlantillaSOfertaS', 'EditorOfertaS', 'EditorOferta', 'SupervisorTutor', 'Instructor', 'JefeContenido']        
     }} 
 />
+

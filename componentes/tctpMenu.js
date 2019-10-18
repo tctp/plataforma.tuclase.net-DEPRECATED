@@ -39,8 +39,7 @@ export default class extends React.Component {
 
     render() {
         let { openKeys, current } = this.state;
-        let { sistemaActual, lang } = this.props;  
-        console.log("this.state", this.state);                    
+        let { sistemaActual, lang } = this.props;                          
         if (sistemaActual == "tctp-lms-bs") {
             return <IntlProvider locale={lang} messages={mensajes[lang]}>                
                 <Menu mode="inline" openKeys={openKeys} selectedKeys={current} onOpenChange={this.onOpenChange} onClick={this.onMenuClick}>

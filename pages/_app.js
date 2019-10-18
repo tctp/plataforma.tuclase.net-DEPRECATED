@@ -26,7 +26,7 @@ class SmartComponent extends React.Component {
     sistemaActual: undefined
   }
 
-  componentDidMount() {
+  componentDidMount() {    
     this.getIdioma(this.state.lang);
     let arrayRutas = Router.router.pathname.split('/').filter(Boolean);    
     if (arrayRutas.length == 0) {
