@@ -2,8 +2,8 @@
 import React from 'react'
 import { Spin } from 'antd';
 
-export default () => (
+export default (props) => (
     <div className="loading">
-        <Spin size="large" tip="Cargando sitio por favor espere..." />
+        <Spin size="large" tip={props.msj} />
     </div> 
   )

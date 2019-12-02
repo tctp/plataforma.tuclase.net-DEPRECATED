@@ -7,7 +7,8 @@ const sitemap = sm.createSitemap({
   cacheTime: 600000 // 600 sec - cache purge period
 })
 
-const setup = ({ server }) => {  
+const setup = ({ server }) => { 
+
   glob("out/**/*.html", function (er, files) {    
     files.forEach((file, index) => {          
       sitemap.add({

@@ -2,7 +2,6 @@
 import React from 'react'
 import Router from 'next/router'
 import Head from 'next/head'
-import Link from 'next/link'
 import App, { Container } from 'next/app'
 import { Layout, Row, Col, Icon, Input, Menu, Dropdown } from 'antd'
 import { addLocaleData } from 'react-intl';
@@ -78,7 +77,7 @@ class SmartComponent extends React.Component {
     }
   }
 
-  render() {
+  render() {    
     let { currentYear, sistemaActual, collapsed, lang, mobile } = this.state;        
     return (
       <Layout>
@@ -168,10 +167,11 @@ class SmartComponent extends React.Component {
 
 export default class AppDoc extends App {
   static async getInitialProps({ Component, ctx }) {
-    let pageProps = {};
+    let pageProps = {};    
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx);
     }
+
     return { pageProps };
   }
   render() {
@@ -179,7 +179,7 @@ export default class AppDoc extends App {
     return (
       <Container>
         <SmartComponent>
-          <Component {...pageProps} />
+          <Component {...pageProps}/>
         </SmartComponent>
       </Container>
     )
