@@ -1,6 +1,7 @@
 import TctpVideo from '../../../../../componentes/documentacion/tctpVideo'
 import TctpPreguntas from '../../../../../componentes/documentacion/tctpPreguntas'
 import TctpOuTipoTabla from '../../../../../componentes/documentacion/tctpOuTipoTabla'
+import TctpRolesPermisos from '../../../../../componentes/documentacion/tctpRolesPermisos'
 
 # Aulas virtuales
 
@@ -45,19 +46,3 @@ Este video muestra un ejemplo de como crear y agregar video tareas.
 * <a href="https://bongolearn.zendesk.com/hc/es/articles/360010811014-C%C3%B3mo-crear-y-administrar-grupos" target="_blank">Cómo crear y administrar grupos</a>
 * <a href="https://documentation.brightspace.com/es-mx/integrations/youseeu/admin/about_youseeu_integration_1.htm?tocpath=Instructores%7CIntegraciones%7CVirtual%20Classrooms%20and%20Video%20Assignments%20by%20Bongo%7C_____0" target="_blank">Virtual Classrooms and Video Assignments by Bongo</a>
 
-<TctpOuTipoTabla 
-    organizacion={{
-        escritura:['AdminTuclase'],
-    }} 
-    campus={{
-        escritura:['AdminTuclase'],         
-    }} 
-    plantillas={{  
-        escritura:['AdminTuclase'],      
-        lectura:['RevisorPlantilla', 'RevisorPlantillaS', 'RevPlantillaSOfertaS', 'EdPlantillaSOfertaS', 'JefeContenido', 'EditorPlantillaS', 'EditorPlantilla'],         
-    }} 
-    ofertas={{
-        lectura:['RevPlantillaSOfertaS', 'RevisorOferta', 'RevisorOfertaS', 'Aprendiz'], 
-        escritura:['EdPlantillaSOfertaS', 'EditorOfertaS', 'EditorOferta', 'SupervisorTutor', 'Instructor', 'JefeContenido', 'Tutor']        
-    }} 
-/>

@@ -1,6 +1,7 @@
 import TctpVideo from '../../../../../componentes/documentacion/tctpVideo'
 import TctpPreguntas from '../../../../../componentes/documentacion/tctpPreguntas'
 import TctpOuTipoTabla from '../../../../../componentes/documentacion/tctpOuTipoTabla'
+import TctpRolesPermisos from '../../../../../componentes/documentacion/tctpRolesPermisos'
 
 # Premios
 
@@ -43,20 +44,5 @@ Este tutorial muestra cómo agregar una condición de logro a un premio.
 
 ## Accesos por rol
 
-<TctpOuTipoTabla 
-    organizacion={{
-        escritura:['AdminTuclase', 'AdminLocal'],
-    }} 
-    campus={{
-        escritura:['AdminTuclase', 'AdminLocal', 'AdminUnidadNegocio'],        
-    }} 
-    plantillas={{
-        lectura:['RevisorPlantilla', 'RevisorPlantillaS', 'RevPlantillaSOfertaS'], 
-        escritura:['EditorPlantilla', 'EditorPlantillaS', 'EdPlantillaSOfertaS', 'JefeContenido']
-    }} 
-    ofertas={{
-        lectura:['RevPlantillaSOfertaS', 'RevisorOferta', 'RevisorOfertaS'], 
-        escritura:['EdPlantillaSOfertaS', 'EditorOfertaS', 'EditorOferta', 'SupervisorTutor', 'Instructor', 'JefeContenido', 'Tutor']        
-    }} 
-/>
+<TctpRolesPermisos lmsCode="tctp" tool={"premios"}/>
 

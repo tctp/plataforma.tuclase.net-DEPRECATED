@@ -1,6 +1,7 @@
 import TctpVideo from '../../../../../componentes/documentacion/tctpVideo'
 import TctpPreguntas from '../../../../../componentes/documentacion/tctpPreguntas'
 import TctpOuTipoTabla from '../../../../../componentes/documentacion/tctpOuTipoTabla'
+import TctpRolesPermisos from '../../../../../componentes/documentacion/tctpRolesPermisos'
 
 # Rúbricas
 
@@ -31,20 +32,5 @@ Este video describe cómo agregar una rúbrica a una actividad existente en la h
 * <a href="https://documentation.brightspace.com/es-mx/le/rubrics/instructor/rubric_types.htm?tocpath=Introducci%C3%B3n%7CPreguntas%20frecuentes%20de%20los%20instructores%7CR%C3%BAbricas%7C_____1" target="_blank">Tipos de rúbricas</a>
 
 ## Accesos por rol
-<TctpOuTipoTabla 
-    organizacion={{
-        escritura:['AdminTuclase', 'AdminLocal'],
-    }} 
-    campus={{
-        escritura:['AdminTuclase', 'AdminLocal', 'AdminUnidadNegocio'],        
-    }} 
-    plantillas={{
-        lectura:['RevisorPlantilla', 'RevisorPlantillaS', 'RevPlantillaSOfertaS'], 
-        escritura:['EditorPlantilla', 'EditorPlantillaS', 'EdPlantillaSOfertaS', 'JefeContenido']
-    }} 
-    ofertas={{
-        lectura:['RevPlantillaSOfertaS', 'RevisorOferta', 'RevisorOfertaS', 'Tutor'], 
-        escritura:['EdPlantillaSOfertaS', 'EditorOfertaS', 'EditorOferta', 'SupervisorTutor', 'Instructor', 'JefeContenido']        
-    }} 
-/>
+<TctpRolesPermisos lmsCode="tctp" tool={"rubricas"}/>
 

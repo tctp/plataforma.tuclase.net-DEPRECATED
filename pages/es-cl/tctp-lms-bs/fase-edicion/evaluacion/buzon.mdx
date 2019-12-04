@@ -1,6 +1,7 @@
 import TctpVideo from '../../../../../componentes/documentacion/tctpVideo'
 import TctpPreguntas from '../../../../../componentes/documentacion/tctpPreguntas'
 import TctpOuTipoTabla from '../../../../../componentes/documentacion/tctpOuTipoTabla'
+import TctpRolesPermisos from '../../../../../componentes/documentacion/tctpRolesPermisos'
 
 # Buzón
 
@@ -66,20 +67,5 @@ Todos los buzones pueden ser restringido para establecer la disponibilidad, las 
 
 ## Accesos por rol
 
-<TctpOuTipoTabla 
-    organizacion={{
-        escritura:['AdminTuclase', 'AdminLocal'],
-    }} 
-    campus={{
-        escritura:['AdminTuclase', 'AdminLocal', 'AdminUnidadNegocio'],        
-    }} 
-    plantillas={{
-        lectura:['RevisorPlantilla', 'RevisorPlantillaS', 'RevPlantillaSOfertaS'], 
-        escritura:['EditorPlantilla', 'EditorPlantillaS', 'EdPlantillaSOfertaS', 'JefeContenido']
-    }} 
-    ofertas={{
-        lectura:['RevPlantillaSOfertaS', 'RevisorOferta', 'RevisorOfertaS', 'Tutor'], 
-        escritura:['EdPlantillaSOfertaS', 'EditorOfertaS', 'EditorOferta', 'SupervisorTutor', 'Instructor', 'JefeContenido']        
-    }} 
-/>
+<TctpRolesPermisos lmsCode="tctp" tool={"buzon"}/>
 

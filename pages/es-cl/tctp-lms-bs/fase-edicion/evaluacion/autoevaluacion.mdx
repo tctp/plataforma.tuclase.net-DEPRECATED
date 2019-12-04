@@ -1,6 +1,7 @@
 import TctpVideo from '../../../../../componentes/documentacion/tctpVideo'
 import TctpPreguntas from '../../../../../componentes/documentacion/tctpPreguntas'
 import TctpOuTipoTabla from '../../../../../componentes/documentacion/tctpOuTipoTabla'
+import TctpRolesPermisos from '../../../../../componentes/documentacion/tctpRolesPermisos'
 
 # Autoevaluación
 
@@ -30,20 +31,5 @@ Este tutorial muestra cómo crear una autoevaluación para entregar como ayuda d
 * <a href="https://documentation.brightspace.com/es-mx/le/self_assessments/instructor/create_self_assessment.htm?tocpath=Instructores%7CMedir%20y%20orientar%20el%20desempe%C3%B1o%20y%20la%20participaci%C3%B3n%7CPermitir%20a%20los%20alumnos%20reflexionar%20sobre%20su%20aprendizaje%7C_____4" target="_blank">Crear una autoevaluación</a>
 
 ## Accesos por rol
-<TctpOuTipoTabla 
-    organizacion={{
-        escritura:['AdminTuclase', 'AdminLocal'],
-    }} 
-    campus={{
-        escritura:['AdminTuclase', 'AdminLocal', 'AdminUnidadNegocio'],        
-    }} 
-    plantillas={{
-        lectura:['RevisorPlantilla', 'RevisorPlantillaS', 'RevPlantillaSOfertaS'], 
-        escritura:['EditorPlantilla', 'EditorPlantillaS', 'EdPlantillaSOfertaS', 'JefeContenido']
-    }} 
-    ofertas={{
-        lectura:['RevPlantillaSOfertaS', 'RevisorOferta', 'RevisorOfertaS', 'Tutor'], 
-        escritura:['EdPlantillaSOfertaS', 'EditorOfertaS', 'EditorOferta', 'SupervisorTutor', 'Instructor', 'JefeContenido']        
-    }} 
-/>
+<TctpRolesPermisos lmsCode="tctp" tool={"autoevaluaciones"}/>
 
