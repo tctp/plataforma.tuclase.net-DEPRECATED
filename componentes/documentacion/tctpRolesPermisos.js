@@ -148,7 +148,20 @@ export default class extends React.Component {
                         onChange={this.changeSelectOptionRolName}
                     >
                         {this.state.allRolesByTool.map((rol) => {
-                            return <Option key={rol._id} value={rol.displayName}>{rol.displayName}</Option>
+                            switch (rol.displayName) {
+                                case "D2LMonitor":                                        
+                                        break;  
+                                case "Student (D2L)":                                        
+                                        break;
+                                case "D2LEndUserSupport":
+                                        break;  
+                                case "CourseCatalog":                                        
+                                        break;  
+                                case "Intructor (D2L)":                                        
+                                        break;  
+                                default:
+                                return <Option key={rol._id} value={rol.displayName}>{rol.displayName}</Option>                                
+                            }                            
                         })}
                     </Select>
                 </div> : <span><Loading msj="Cargando datos..." /></span>
@@ -157,6 +170,8 @@ export default class extends React.Component {
                 <Table bordered columns={columns} dataSource={data} />
             }
         </div>)
+
+        
     }
 
 }
