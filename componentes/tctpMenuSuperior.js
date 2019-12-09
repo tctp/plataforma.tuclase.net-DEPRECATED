@@ -2,7 +2,7 @@ import {Icon, Menu } from 'antd'
 
 export default class extends React.Component {
     
-    action=(e)=>{        
+    action=(e)=>{                
         this.props.callback(e.key); // llama función del componente padre
     }
 

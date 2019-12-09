@@ -24,27 +24,4 @@ export default{
         'agentes inteligentes':'Agentes Inteligentes', 
         'aulas virtuales':'Aulas virtuales'     
     },
-    'pt-br':{    
-        'administrador': 'Administrador',
-        'gestor': 'gerente do curso',
-        'tutor': 'Tutor',
-        'supervisorTutor': 'Supervisor Tutor',
-        'editor': 'Editor do curso',
-        'disenador': 'Designer gráfico',
-        'desarrollador': 'Desenvolvedor SW',
-        'organizador': 'Organizador',
-        'gestionUsuarios': 'Gerenciamento de usuários',
-        'about': 'Quem somos',
-        'contacto': 'Contato',
-        'cuestionarios':'Questionários',
-        'descripcion':'Descrição',
-        'evaluacion':'Avaliação',
-        'buzon':'Atribuições',
-        'calificaciones':'Classificações',
-        'debates':'Debates',     
-        'premios':'Prêmios',
-        'encuestas':'Pesquisas',        
-        'agentes inteligentes':'Agentes inteligentes',
-        'aulas virtuales':'Salas de aula virtuais'
-    }
 }

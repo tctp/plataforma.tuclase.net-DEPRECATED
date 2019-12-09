@@ -4,7 +4,6 @@ import Router from 'next/router'
 import Head from 'next/head'
 import App, { Container } from 'next/app'
 import { Layout, Row, Col, Icon, Input, Menu, Dropdown } from 'antd'
-import { addLocaleData } from 'react-intl';
 import TctpAnchor from '../componentes/tctpAnchor'
 import TctpCopy from '../componentes/tctpCopy'
 import TctpMenu from '../componentes/tctpMenu'
@@ -25,8 +24,7 @@ class SmartComponent extends React.Component {
     sistemaActual: undefined
   }
 
-  componentDidMount() {    
-    this.getIdioma(this.state.lang);
+  componentDidMount() {        
     let arrayRutas = Router.router.pathname.split('/').filter(Boolean);    
     if (arrayRutas.length == 0) {
       this.setState({ collapsed: true });
@@ -49,17 +47,8 @@ class SmartComponent extends React.Component {
   // Cuando se hace clic en el menu superior
   onClickMenuSuperiorSistemas = (sistema) => {
     this.setState({ sistemaActual: sistema, collapsed: false });
+    console.log("`/${this.state.lang}/${sistema}/home`", `/${this.state.lang}/${sistema}/home`);
     Router.push(`/${this.state.lang}/${sistema}/home`);
-  }
-
-  getIdioma = (i) => {
-    addLocaleData(require(`react-intl/locale-data/${i.slice(0, 2)}`)); //carga dinamica de libreria para idioma        
-  }
-
-  onClickDropdownIdiomas = (value) => {    
-    this.getIdioma(value.key);
-    this.setState({ lang: value.key })
-    Router.push(`/${value.key}/${Router.router.pathname.substring(0, Router.router.pathname.lastIndexOf("_"))}`)
   }
 
   // identifica cuando debería cambiar a la vista movil
@@ -78,7 +67,8 @@ class SmartComponent extends React.Component {
   }
 
   render() {    
-    let { currentYear, sistemaActual, collapsed, lang, mobile } = this.state;        
+    let { currentYear, sistemaActual, collapsed, lang, mobile } = this.state; 
+    console.log("lang",lang);       
     return (
       <Layout>
         <Head>
@@ -150,14 +140,6 @@ class SmartComponent extends React.Component {
         </Layout>
         <Footer style={{ textAlign: 'center', backgroundColor: '#FAFAFA' }}>
           Tu clase, tu país ©{currentYear}&nbsp;&nbsp;
-            <Dropdown className="localeBtn" overlay={(
-            <Menu onClick={this.onClickDropdownIdiomas}>
-              <Menu.Item key="es-cl">Español</Menu.Item>
-              <Menu.Item key="pt-br">Portugues</Menu.Item>
-            </Menu>
-          )}>
-            <Icon type="global" style={{ fontSize: '16px', color: '#666' }} />
-          </Dropdown>
           <p style={{ fontSize: '11px', color: '#666' }}>Versión publicada: {v.version}</p>
         </Footer>
       </Layout>
