@@ -30,14 +30,15 @@ export default class extends React.Component {
             tool.claims.forEach((claim) => { //aislar las ous            
                 let ouNamesEncontrado = arrOusFiltradas.find(o => o.id == claim.ouTypeId);            
                 if(!ouNamesEncontrado){                
-                    if(claim.ouTypeName=="Organización" || claim.ouTypeName=="Negocio" || claim.ouTypeName=="Oferta de cursos" || claim.ouTypeName=="Plantilla de curso"){        
+                    if(claim.ouTypeName=="Organización" || claim.ouTypeName=="Oferta de cursos" || claim.ouTypeName=="Plantilla de curso" || claim.ouTypeName=="Grupo" || claim.ouTypeName=="Sección" ){        
                         arrOusFiltradas.push({id:claim.ouTypeId, name:claim.ouTypeName});
                     }
                 }            
             });
-        })      
-        arrOusFiltradas = arrOusFiltradas.sort(function(a, b){return a.id-b.id});  //ordenar ous       
+        })              
+        arrOusFiltradas = arrOusFiltradas.sort((a, b)=>{return a.id-b.id});  //ordenar ous              
         tools.forEach((tool) => {
+            tool.claims.sort((a, b)=>a.displayName.localeCompare(b.displayName)); //ordenar por nombres
             tool.claims.forEach((claim) => {
                 let arrClaimsEncontrado = arrclaims.find(c => c.claimId == claim.claimId);                
                 if (!arrClaimsEncontrado) {
@@ -56,10 +57,10 @@ export default class extends React.Component {
             {
               title: 'Permisos',
               dataIndex: 'permiso',
-              render: text => <a>{text}</a>,
+              render: text => <span>{text}</span>,
             },
           ];
-          arrOusFiltradas.forEach((ou)=>{                
+          arrOusFiltradas.forEach((ou)=>{                              
                 columns.push({title:ou.name, dataIndex:cleanStrings.getCleanedString(ou.name), align: 'center', width:"12%"});                
           })
 
@@ -70,21 +71,25 @@ export default class extends React.Component {
                     let obj = {                        
                         permiso:claim.displayname,                            
                     }
+                    //se identifican y se asignan los valores a las propiedades de cada fila
                     claim.ous.forEach((ou, index)=>{                        
                         obj.key = index+ou.ouName+claim.displayname;                   
                         switch (ou.ouName) {
                             case "Organización":
                                     obj.organizacion = this.setIconsIsAllowed(ou.allowed);
                                     break;  
-                            case "Negocio":
-                                    obj.negocio = this.setIconsIsAllowed(ou.allowed); 
-                                    break;
                             case "Oferta de cursos":
                                     obj.ofertadecursos = this.setIconsIsAllowed(ou.allowed);
                                     break;  
                             case "Plantilla de curso":
                                     obj.plantilladecurso = this.setIconsIsAllowed(ou.allowed); 
-                                    break;  
+                                    break; 
+                            case "Grupo":
+                                    obj.grupo = this.setIconsIsAllowed(ou.allowed); 
+                                    break; 
+                            case "Sección":
+                                    obj.seccion = this.setIconsIsAllowed(ou.allowed); 
+                                    break; 
                         }
                     })
                     data.push(obj);
@@ -98,8 +103,9 @@ export default class extends React.Component {
     }
 
     getRolesPermisos = async (lmsCode, tool) => {
-        let resp = await rolesPermisosServices.seachRolesPermisos(lmsCode, tool);
-        if (resp.message) {
+        let resp = await rolesPermisosServices.seachRolesPermisos(lmsCode, tool);        
+        resp.sort((a, b)=>a.displayName.localeCompare(b.displayName));  //ordenar por nombres                                
+        if (resp.message) {            
             this.setState({ allRolesByTool: resp, loading: false, error: true, errorMsj: resp.message });
         } else {
             this.setState({ allRolesByTool: resp, loading: false, error: false });
@@ -147,7 +153,7 @@ export default class extends React.Component {
                 </div> : <span><Loading msj="Cargando datos..." /></span>
             }
             {
-                <Table bordered columns={columns} dataSource={data} />
+                <Table pagination={false} bordered columns={columns} dataSource={data} />
             }
         </div>)
 
