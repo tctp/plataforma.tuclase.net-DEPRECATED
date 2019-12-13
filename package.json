@@ -19,7 +19,7 @@
     "isomorphic-unfetch": "^3.0.0",
     "less": "^3.8.1",
     "next": "^9.0.0",
-    "npm": "^6.10.0",
+    "npm": "^6.13.4",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-instantsearch-dom": "^5.7.0",
