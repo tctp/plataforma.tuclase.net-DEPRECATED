@@ -52,6 +52,7 @@ export default class extends React.Component {
                             <Menu.Item key={`autoevaluacion`}><Link href={`/${lang}/${sistemaActual}/fase-edicion/evaluacion/autoevaluacion`}><a>Autoevaluacion</a></Link></Menu.Item>
                             <Menu.Item key={`rubricas`}><Link href={`/${lang}/${sistemaActual}/fase-edicion/evaluacion/rubricas`}><a>Rubricas</a></Link></Menu.Item>
                             <Menu.Item key={`resultados-de-aprendizaje`}><Link href={`/${lang}/${sistemaActual}/fase-edicion/evaluacion/resultados-de-aprendizaje`}><a>Resultados de aprendizaje</a></Link></Menu.Item>
+                            <Menu.Item key={`evaluacion-rapida`}><Link href={`/${lang}/${sistemaActual}/fase-edicion/evaluacion/evaluacion-rapida`}><a>Evaluación rápida</a></Link></Menu.Item>
                         </SubMenu>
                         <SubMenu key="comunicacion" title={"Comunicación"} className="menuTercerNivel" onTitleClick={this.onTitleSubMenuSegundoClick}>
                             <Menu.Item key={`debates`}><Link href={`/${lang}/${sistemaActual}/fase-edicion/comunicacion/debates`}><a>Debates</a></Link></Menu.Item>
@@ -59,7 +60,7 @@ export default class extends React.Component {
                             <Menu.Item key={`aulas-virtuales`}><Link href={`/${lang}/${sistemaActual}/fase-edicion/comunicacion/aulas-virtuales`}><a>Aulas virtuales</a></Link></Menu.Item>
                             <Menu.Item key={`retroalimentacion`}><Link href={`/${lang}/${sistemaActual}/fase-edicion/comunicacion/retroalimentacion`}><a>Retroalimentación</a></Link></Menu.Item>
                             <Menu.Item key={`video-tareas`}><Link href={`/${lang}/${sistemaActual}/fase-edicion/comunicacion/video-tareas`}><a>Video tareas</a></Link></Menu.Item>
-                            <Menu.Item key={`herramientas-de-comunicacion`}><Link href={`/${lang}/${sistemaActual}/fase-edicion/herramientas-de-comunicacion`}><a>Herramientas de comunicación</a></Link></Menu.Item>
+                            <Menu.Item key={`herramientas-de-comunicacion`}><Link href={`/${lang}/${sistemaActual}/fase-edicion/herramientas-de-comunicacion`}><a>Herramientas de comunicación</a></Link></Menu.Item>                            
                         </SubMenu>
                     </SubMenu>
                     <SubMenu key="fase-despliegue" title={"Fase de despliegue"} onTitleClick={this.onTitleSubMenuClick}>                                                
