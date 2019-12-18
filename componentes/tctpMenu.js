@@ -71,6 +71,7 @@ export default class extends React.Component {
                     </SubMenu>
                     <SubMenu key="fase-ejecucion" title={"Fase de ejecución"} onTitleClick={this.onTitleSubMenuClick}>                                                
                         <Menu.Item key={`informe-cierre`}><Link href={`/${lang}/${sistemaActual}/fase-ejecucion/informe-cierre`}><a>Informe de cierre</a></Link></Menu.Item>
+                        <Menu.Item key={`roles-y-permisos`}><Link href={`/${lang}/${sistemaActual}/fase-ejecucion/roles-y-permisos`}><a>Roles y permisos</a></Link></Menu.Item>
                     </SubMenu>
                     <SubMenu key="fase-analisis" title={"Fase de análisis"} onTitleClick={this.onTitleSubMenuClick}>                        
                         <Menu.Item key={`progreso`}><Link href={`/${lang}/${sistemaActual}/fase-analisis/progreso`}><a>Progreso del curso</a></Link></Menu.Item>

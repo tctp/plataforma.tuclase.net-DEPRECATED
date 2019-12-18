@@ -7,24 +7,27 @@ const { Option } = Select;
 export default class extends React.Component {
 
     state = {
-        allRolesByTool: [],
+        permisosEncontrados: [],
         loading: false,        
         rolToolsClaimsActual: undefined,
         error: false,
         errorMsj: '',
         data:[],
-        columns:[]
+        columns:[],
+        esBusquedaPorTool: false,
+        esRolSeleccionado: false        
     }
 
     componentDidMount() {
         this.getRolesPermisos(this.props.lmsCode, this.props.tool);
+        this.setState({esBusquedaPorTool:this.props.tool ? true:false})
     }
 
-    changeSelectOptionRolName = (rolNameSeleccionado) => {
+    changeSelectOptionRolName = (rolNameSeleccionado) => {        
         let arrOusFiltradas = [];
         let arrTools = [];
         let arrclaims = [];
-        let [rolToolsClaims] = this.state.allRolesByTool.filter((rol) => rol.displayName == rolNameSeleccionado);
+        let [rolToolsClaims] = this.state.permisosEncontrados.filter((rol) => rol.displayName == rolNameSeleccionado);
         let {tools, _id, displayName, lmsCode, rolId} = rolToolsClaims;
         tools.forEach((tool)=>{
             tool.claims.forEach((claim) => { //aislar las ous            
@@ -99,16 +102,16 @@ export default class extends React.Component {
         console.log("rolToolsClaims", rolToolsClaims);
         console.log("arrclaims", arrclaims);
         console.log("objRolesPermisos", objRolesPermisos);        
-        this.setState({ rolToolsClaimsActual: objRolesPermisos, data: data, columns:columns  });
+        this.setState({ rolToolsClaimsActual: objRolesPermisos, data: data, columns:columns, esRolSeleccionado:true  });
     }
 
     getRolesPermisos = async (lmsCode, tool) => {
         let resp = await rolesPermisosServices.seachRolesPermisos(lmsCode, tool);        
         resp.sort((a, b)=>a.displayName.localeCompare(b.displayName));  //ordenar por nombres                                
         if (resp.message) {            
-            this.setState({ allRolesByTool: resp, loading: false, error: true, errorMsj: resp.message });
+            this.setState({ permisosEncontrados: resp, loading: false, error: true, errorMsj: resp.message });
         } else {
-            this.setState({ allRolesByTool: resp, loading: false, error: false });
+            this.setState({ permisosEncontrados: resp, loading: false, error: false });
         }
     }
 
@@ -122,18 +125,18 @@ export default class extends React.Component {
 
 
     render() {
-        let { rolToolsClaimsActual, loading, allRolesByTool, data, columns } = this.state;
+        let { rolToolsClaimsActual, loading, permisosEncontrados, data, columns } = this.state;
         console.log("this.state", this.state);
         return (<div>
             {
-                !loading && allRolesByTool.length > 0 ? <div>
+                !loading && permisosEncontrados.length > 0 ? <div>
                     <Select
                         showSearch
                         value={rolToolsClaimsActual ? rolToolsClaimsActual.displayName : 'Por favor seleccione...'}
                         style={{ width: '32%' }}
                         onChange={this.changeSelectOptionRolName}
                     >
-                        {this.state.allRolesByTool.map((rol) => {
+                        {this.state.permisosEncontrados.map((rol) => {
                             switch (rol.displayName) {
                                 case "D2LMonitor":                                        
                                         break;  
@@ -150,6 +153,14 @@ export default class extends React.Component {
                             }                            
                         })}
                     </Select>
+
+                        {/* {
+                            !this.state.esBusquedaPorTool && this.state.esRolSeleccionado ? <div>
+                                Selecciona ahora el tool
+                            </div> : <span>Busqueda sin tool</span>
+
+                        } */}
+
                 </div> : <span><Loading msj="Cargando datos..." /></span>
             }
             {
