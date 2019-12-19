@@ -8,6 +8,7 @@ export default class extends React.Component {
 
     state = {
         permisosEncontrados: [],
+        ous:["Organización","Oferta de cursos", "Plantilla de curso", "Grupo", "Sección"],
         loading: false,        
         rolToolsClaimsActual: undefined,
         error: false,
@@ -23,38 +24,8 @@ export default class extends React.Component {
         this.setState({esBusquedaPorTool:this.props.tool ? true:false})
     }
 
-    changeSelectOptionRolName = (rolNameSeleccionado) => {        
-        let arrOusFiltradas = [];
-        let arrTools = [];
-        let arrclaims = [];
-        let [rolToolsClaims] = this.state.permisosEncontrados.filter((rol) => rol.displayName == rolNameSeleccionado);
-        let {tools, _id, displayName, lmsCode, rolId} = rolToolsClaims;
-        tools.forEach((tool)=>{
-            tool.claims.forEach((claim) => { //aislar las ous            
-                let ouNamesEncontrado = arrOusFiltradas.find(o => o.id == claim.ouTypeId);            
-                if(!ouNamesEncontrado){                
-                    if(claim.ouTypeName=="Organización" || claim.ouTypeName=="Oferta de cursos" || claim.ouTypeName=="Plantilla de curso" || claim.ouTypeName=="Grupo" || claim.ouTypeName=="Sección" ){        
-                        arrOusFiltradas.push({id:claim.ouTypeId, name:claim.ouTypeName});
-                    }
-                }            
-            });
-        })              
-        arrOusFiltradas = arrOusFiltradas.sort((a, b)=>{return a.id-b.id});  //ordenar ous              
-        tools.forEach((tool) => {
-            tool.claims.sort((a, b)=>a.displayName.localeCompare(b.displayName)); //ordenar por nombres
-            tool.claims.forEach((claim) => {
-                let arrClaimsEncontrado = arrclaims.find(c => c.claimId == claim.claimId);                
-                if (!arrClaimsEncontrado) {
-                    arrclaims.push({ displayname:claim.displayName, claimId:claim.claimId, ous: [{ grantId:claim.grantId, ouName:claim.ouTypeName, allowed:claim.allowed }] });
-                } else {
-                    arrClaimsEncontrado.ous.push({ grantId:claim.grantId, ouName:claim.ouTypeName, allowed:claim.allowed });
-                }
-            })
-            let objTool = {displayName:tool.displayName, isActive:tool.isActive, toolId:tool.toolId, claims:arrclaims};
-            arrTools.push(objTool);
-        })
-
-        let objRolesPermisos = {_id, displayName, lmsCode, rolId, tools: arrTools}
+    changeSelectOptionRolName = (rolNameSeleccionado) => {                        
+        let {objRolesPermisos,arrOusFiltradas} = this.crearDatosParaComponenteTabla(rolNameSeleccionado);
         //columnas para construir tabla
         const columns = [
             {
@@ -97,13 +68,53 @@ export default class extends React.Component {
                     })
                     data.push(obj);
                 })
-          })
-
-        console.log("rolToolsClaims", rolToolsClaims);
-        console.log("arrclaims", arrclaims);
-        console.log("objRolesPermisos", objRolesPermisos);        
+          })      
         this.setState({ rolToolsClaimsActual: objRolesPermisos, data: data, columns:columns, esRolSeleccionado:true  });
     }
+
+
+    evaluarOusHabilitadas(ou){ 
+        let ok = false;       
+        this.state.ous.forEach((o)=>{
+            if(o == ou){                
+                ok = true;
+            }
+        })
+        return ok
+    }
+
+    crearDatosParaComponenteTabla(rolNameSeleccionado){
+        let arrOusFiltradas = [];        
+        let arrTools = [];
+        let arrclaims = [];
+        let [rolToolsClaims] = this.state.permisosEncontrados.filter((rol) => rol.displayName == rolNameSeleccionado);
+        let {tools, _id, displayName, lmsCode, rolId} = rolToolsClaims;
+        tools.forEach((tool) => {
+            let claims = tool.claims.sort((a, b)=>a.displayName.localeCompare(b.displayName)); //ordenar permisos por nombres
+            claims.forEach((claim) => {
+                let ouNamesEncontrado = arrOusFiltradas.find(o => o.id == claim.ouTypeId);  //buscar OUTypes dentro de los permisos para crear un arreglo de OUs aislado                       
+                if(!ouNamesEncontrado){                                         
+                    if (this.evaluarOusHabilitadas(claim.ouTypeName)) {
+                        arrOusFiltradas.push({ id: claim.ouTypeId, name: claim.ouTypeName });
+                    }
+                } 
+                let arrClaimsEncontrado = arrclaims.find(c => c.claimId == claim.claimId);                
+                if (!arrClaimsEncontrado) {
+                    arrclaims.push({ displayname:claim.displayName, claimId:claim.claimId, ous: [{ grantId:claim.grantId, ouName:claim.ouTypeName, allowed:claim.allowed }] });
+                } else {
+                    arrClaimsEncontrado.ous.push({ grantId:claim.grantId, ouName:claim.ouTypeName, allowed:claim.allowed });
+                }
+            })
+            let objTool = {displayName:tool.displayName, isActive:tool.isActive, toolId:tool.toolId, claims:arrclaims};
+            arrTools.push(objTool);
+        }) 
+        arrOusFiltradas = arrOusFiltradas.sort((a, b)=>{return a.id-b.id});  //ordenar ous
+        let objRolesPermisos = {_id, displayName, lmsCode, rolId, tools: arrTools}
+        // console.log("rolToolsClaims", rolToolsClaims);
+        // console.log("arrclaims", arrclaims);
+        console.log("objRolesPermisos", objRolesPermisos);  
+        return {objRolesPermisos,arrOusFiltradas}
+    } 
 
     getRolesPermisos = async (lmsCode, tool) => {
         let resp = await rolesPermisosServices.seachRolesPermisos(lmsCode, tool);        
@@ -154,21 +165,12 @@ export default class extends React.Component {
                         })}
                     </Select>
 
-                        {/* {
-                            !this.state.esBusquedaPorTool && this.state.esRolSeleccionado ? <div>
-                                Selecciona ahora el tool
-                            </div> : <span>Busqueda sin tool</span>
-
-                        } */}
-
                 </div> : <span><Loading msj="Cargando datos..." /></span>
             }
             {
                 <Table pagination={false} bordered columns={columns} dataSource={data} />
             }
-        </div>)
-
-        
+        </div>)        
     }
 
 }
