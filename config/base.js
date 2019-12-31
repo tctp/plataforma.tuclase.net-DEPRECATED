@@ -3,5 +3,6 @@ export const webSeverBase = isProd ? 'https://plataforma.tuclase.net':'http://lo
 export const apiSeverBase = isProd ? 'https://ltiapps.tuclase.net':'http://localhost:3000';
 
 /*para QA*/
-//export const apiSeverBase = isProd ? 'https://ltiapps-stage.tuclase.net':'http://localhost:3000';
+
+//export const apiSeverBase = 'https://ltiapps-stage.tuclase.net';
 

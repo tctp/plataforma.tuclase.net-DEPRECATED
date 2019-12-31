@@ -1,4 +1,4 @@
-import { Select, Icon, Table } from 'antd';
+import { Select, Icon, Table, Alert } from 'antd';
 import { rolesPermisosServices } from '../../services/rolesPermisosServices';
 import { cleanStrings } from '../../services/cleanStrings';
 import Loading from '../loading';
@@ -12,6 +12,7 @@ export default class extends React.Component {
         loading: false,        
         rolToolsClaimsActual: undefined,
         error: false,
+        errorCode:undefined,
         errorMsj: '',
         data:[],
         columns:[],
@@ -110,18 +111,17 @@ export default class extends React.Component {
         }) 
         arrOusFiltradas = arrOusFiltradas.sort((a, b)=>{return a.id-b.id});  //ordenar ous
         let objRolesPermisos = {_id, displayName, lmsCode, rolId, tools: arrTools}
-        // console.log("rolToolsClaims", rolToolsClaims);
-        // console.log("arrclaims", arrclaims);
         console.log("objRolesPermisos", objRolesPermisos);  
         return {objRolesPermisos,arrOusFiltradas}
     } 
 
     getRolesPermisos = async (lmsCode, tool) => {
-        let resp = await rolesPermisosServices.seachRolesPermisos(lmsCode, tool);        
-        resp.sort((a, b)=>a.displayName.localeCompare(b.displayName));  //ordenar por nombres                                
-        if (resp.message) {            
-            this.setState({ permisosEncontrados: resp, loading: false, error: true, errorMsj: resp.message });
+        let resp = await rolesPermisosServices.seachRolesPermisos(lmsCode, tool);                                
+        if (resp.opCode == 500) {            
+            this.setState({ permisosEncontrados: resp, loading: false, error: true, errorMsj: resp.opErrMsg, errorCode:resp.opCode });
         } else {
+            console.log("resp",resp);      
+            resp.sort((a, b)=>a.displayName.localeCompare(b.displayName));  //ordenar por nombres  
             this.setState({ permisosEncontrados: resp, loading: false, error: false });
         }
     }
@@ -136,37 +136,45 @@ export default class extends React.Component {
 
 
     render() {
-        let { rolToolsClaimsActual, loading, permisosEncontrados, data, columns } = this.state;
+        let { rolToolsClaimsActual, loading, permisosEncontrados, data, columns, error, errorMsj, errorCode } = this.state;
         console.log("this.state", this.state);
         return (<div>
             {
-                !loading && permisosEncontrados.length > 0 ? <div>
-                    <Select
-                        showSearch
-                        value={rolToolsClaimsActual ? rolToolsClaimsActual.displayName : 'Por favor seleccione...'}
-                        style={{ width: '32%' }}
-                        onChange={this.changeSelectOptionRolName}
-                    >
-                        {this.state.permisosEncontrados.map((rol) => {
-                            switch (rol.displayName) {
-                                case "D2LMonitor":                                        
-                                        break;  
-                                case "Student (D2L)":                                        
-                                        break;
-                                case "D2LEndUserSupport":
-                                        break;  
-                                case "CourseCatalog":                                        
-                                        break;  
-                                case "Intructor (D2L)":                                        
-                                        break;  
-                                default:
-                                return <Option key={rol._id} value={rol.displayName}>{rol.displayName}</Option>                                
-                            }                            
-                        })}
-                    </Select>
+                error ? <span>                   
+                    <Alert message={`Error ${errorCode}: ${errorMsj}` } type="error" />
+              </span> :
+                    <span>
+                        {
+                            !loading && permisosEncontrados.length > 0 ? <div>
+                                <Select
+                                    showSearch
+                                    value={rolToolsClaimsActual ? rolToolsClaimsActual.displayName : 'Por favor seleccione...'}
+                                    style={{ width: '32%' }}
+                                    onChange={this.changeSelectOptionRolName}
+                                >
+                                    {this.state.permisosEncontrados.map((rol) => {
+                                        switch (rol.displayName) {
+                                            case "D2LMonitor":
+                                                break;
+                                            case "Student (D2L)":
+                                                break;
+                                            case "D2LEndUserSupport":
+                                                break;
+                                            case "CourseCatalog":
+                                                break;
+                                            case "Intructor (D2L)":
+                                                break;
+                                            default:
+                                                return <Option key={rol._id} value={rol.displayName}>{rol.displayName}</Option>
+                                        }
+                                    })}
+                                </Select>
 
-                </div> : <span><Loading msj="Cargando datos..." /></span>
+                            </div> : <span><Loading msj="Cargando datos..." /></span>
+                        }
+                    </span>
             }
+
             {
                 <Table pagination={false} bordered columns={columns} dataSource={data} />
             }
