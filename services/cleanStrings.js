@@ -8,7 +8,7 @@ class CleanStrings {
         }        
         // Lo queremos devolver limpio en minusculas
         cadena = cadena.toLowerCase();     
-        // Quitamos espacios y los sustituimos por _ porque nos gusta mas asi
+        // Quitamos espacios
         cadena = cadena.replace(/ /g,"");     
         // Quitamos acentos y "ñ". Fijate en que va sin comillas el primer parametro
         cadena = cadena.replace(/á/gi,"a");
