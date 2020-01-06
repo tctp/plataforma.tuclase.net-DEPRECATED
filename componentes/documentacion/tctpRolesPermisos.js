@@ -44,28 +44,21 @@ export default class extends React.Component {
           objRolesPermisos.tools.forEach((tool)=>{
                 tool.claims.forEach((claim)=>{
                     let obj = {                        
-                        permiso:claim.displayname,                            
+                        permiso:claim.displayname, 
+                        organizacion:undefined,                           
+                        ofertadecursos:undefined,                           
+                        plantilladecurso:undefined,                           
+                        grupo:undefined,                           
+                        seccion:undefined                           
                     }
                     //se identifican y se asignan los valores a las propiedades de cada fila
                     claim.ous.forEach((ou, index)=>{                        
-                        obj.key = index+ou.ouName+claim.displayname;                   
-                        switch (ou.ouName) {
-                            case "Organización":
-                                    obj.organizacion = this.setIconsIsAllowed(ou.allowed);
-                                    break;  
-                            case "Oferta de cursos":
-                                    obj.ofertadecursos = this.setIconsIsAllowed(ou.allowed);
-                                    break;  
-                            case "Plantilla de curso":
-                                    obj.plantilladecurso = this.setIconsIsAllowed(ou.allowed); 
-                                    break; 
-                            case "Grupo":
-                                    obj.grupo = this.setIconsIsAllowed(ou.allowed); 
-                                    break; 
-                            case "Sección":
-                                    obj.seccion = this.setIconsIsAllowed(ou.allowed); 
-                                    break; 
-                        }
+                        obj.key = index+ou.ouName+claim.displayname;                                              
+                        this.state.ous.forEach((orgName)=>{
+                            if(orgName == ou.ouName){                              
+                                obj[cleanStrings.getCleanedString(orgName)] = this.setIconsIsAllowed(ou.allowed);                                
+                            }
+                        })
                     })
                     data.push(obj);
                 })
