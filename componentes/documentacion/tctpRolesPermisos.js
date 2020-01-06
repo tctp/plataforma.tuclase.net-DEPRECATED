@@ -53,7 +53,7 @@ export default class extends React.Component {
                     }
                     //se identifican y se asignan los valores a las propiedades de cada fila
                     claim.ous.forEach((ou, index)=>{                        
-                        obj.key = index+ou.ouName+claim.displayname;                                              
+                        obj.key = Math.random().toString(36).substring(2);                        
                         this.state.ous.forEach((orgName)=>{
                             if(orgName == ou.ouName){                              
                                 obj[cleanStrings.getCleanedString(orgName)] = this.setIconsIsAllowed(ou.allowed);                                
