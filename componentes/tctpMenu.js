@@ -41,7 +41,10 @@ export default class extends React.Component {
         switch (sistemaActual) {
             case "tctp-lms-bs":
                     return <Menu mode="inline" openKeys={openKeys} selectedKeys={current} onOpenChange={this.onOpenChange} onClick={this.onMenuClick}>
-                    <SubMenu key="fase-edicion" title={"Fase de edicion"} onTitleClick={this.onTitleSubMenuClick}>                        
+                    <SubMenu key="fase-edicion" title={"Fase de edicion"} onTitleClick={this.onTitleSubMenuClick}>    
+                        <SubMenu key="contenidos" title={"Contenidos"} className="menuTercerNivel">
+                                <Menu.Item key={`administracion-de-cursos`}><Link href={`/${lang}/${sistemaActual}/fase-edicion/contenidos/administracion-de-cursos`}><a>Administración de cursos</a></Link></Menu.Item>                                                       
+                        </SubMenu>                    
                         <SubMenu key="evaluacion" title={"Evaluación"} className="menuTercerNivel">
                             <Menu.Item key={`cuestionarios`}><Link href={`/${lang}/${sistemaActual}/fase-edicion/evaluacion/cuestionarios`}><a>Cuestionarios</a></Link></Menu.Item>
                             <Menu.Item key={`buzon`}><Link href={`/${lang}/${sistemaActual}/fase-edicion/evaluacion/buzon`}><a>Buzón</a></Link></Menu.Item>
