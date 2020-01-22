@@ -13,6 +13,8 @@ import './style.css'
 
 const Search = Input.Search;
 const { Header, Content, Footer, Sider } = Layout;
+const f = new Date();
+const meses = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
 
 class SmartComponent extends React.Component {
   state = {
@@ -20,7 +22,8 @@ class SmartComponent extends React.Component {
     collapsed: false,
     mobile: false,
     loading: true,
-    currentYear: (new Date()).getFullYear(),
+    currentYear: f.getFullYear(),    
+    fechaPublicacion: `${f.getDate()} de ${meses[f.getMonth()]} del ${f.getFullYear()}`,
     sistemaActual: undefined
   }
 
@@ -67,7 +70,7 @@ class SmartComponent extends React.Component {
   }
 
   render() {    
-    let { currentYear, sistemaActual, collapsed, lang, mobile } = this.state; 
+    let { currentYear, sistemaActual, collapsed, lang, mobile, fechaPublicacion } = this.state; 
     console.log("lang",lang);       
     return (
       <Layout>
@@ -140,7 +143,7 @@ class SmartComponent extends React.Component {
         </Layout>
         <Footer style={{ textAlign: 'center', backgroundColor: '#FAFAFA' }}>
           Tu clase, tu país ©{currentYear}&nbsp;&nbsp;
-          <p style={{ fontSize: '11px', color: '#666' }}>Versión publicada: {v.version}</p>
+          <p style={{ fontSize: '11px', color: '#666' }}>Versión publicada: {fechaPublicacion}</p>
         </Footer>
       </Layout>
     )
