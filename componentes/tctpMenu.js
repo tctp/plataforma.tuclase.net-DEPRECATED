@@ -44,6 +44,7 @@ export default class extends React.Component {
                     <SubMenu key="fase-edicion" title={"Fase de edicion"} onTitleClick={this.onTitleSubMenuClick}>    
                         <SubMenu key="contenidos" title={"Contenidos"} className="menuTercerNivel">
                                 <Menu.Item key={`administracion-de-cursos`}><Link href={`/${lang}/${sistemaActual}/fase-edicion/contenidos/administracion-de-cursos`}><a>Administración de cursos</a></Link></Menu.Item>                                                       
+                                <Menu.Item key={`creacion-de-contenidos`}><Link href={`/${lang}/${sistemaActual}/fase-edicion/contenidos/creacion-de-contenidos`}><a>Creación de contenidos</a></Link></Menu.Item>                                                       
                         </SubMenu>                    
                         <SubMenu key="evaluacion" title={"Evaluación"} className="menuTercerNivel">
                             <Menu.Item key={`cuestionarios`}><Link href={`/${lang}/${sistemaActual}/fase-edicion/evaluacion/cuestionarios`}><a>Cuestionarios</a></Link></Menu.Item>
